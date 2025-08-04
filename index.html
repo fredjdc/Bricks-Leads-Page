@@ -151,9 +151,9 @@
                                 x-data="{ email: '', submitted: false, success: false }"
                                 x-show="!success"
                                 @submit="setTimeout(() => { success = true }, 200)">
-                                <input type="hidden" name="_subject" value="Nuevo registro en Bricks Leads">
-                                <input type="hidden" name="_captcha" value="false">
-                                <input type="hidden" name="_next" value="https://bricksleads.com/thank-you.html">
+                                <input type="hidden" name="_subject" value="Nuevo registro en Bricks Leads" />
+                                <input type="hidden" name="_captcha" value="false" />
+                                <input type="hidden" name="_next" value="https://leads.bricks.pe/thank-you" />
                                 <div class="flex flex-col sm:flex-row gap-3">
                                     <input
                                         type="email"
@@ -315,17 +315,17 @@
                 </p>
 
                 <div class="bg-white rounded-2xl p-8 shadow-xl max-w-md mx-auto">
-                    <form 
+                    <form
                         id="subscription-form"
-                        class="space-y-4" 
-                        action="https://formsubmit.co/707e6e012fa931048784ff0f766aa0df" 
+                        class="space-y-4"
+                        action="https://formsubmit.co/707e6e012fa931048784ff0f766aa0df"
                         method="POST"
-                        x-data="{ email: '', submitted: false, success: false }" 
+                        x-data="{ email: '', submitted: false, success: false }"
                         x-show="!success"
                         @submit="setTimeout(() => { success = true }, 200)">
-                        <input type="hidden" name="_subject" value="Nuevo registro en Bricks Leads">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://bricksleads.com/thank-you.html">
+                        <input type="hidden" name="_subject" value="Nuevo registro en Bricks Leads" />
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_next" value="https://leads.bricks.pe/thank-you" />
                         <input
                             type="email"
                             name="email"
@@ -398,29 +398,29 @@
             document.addEventListener("DOMContentLoaded", function () {
                 // Check if the URL has a submitted parameter
                 const urlParams = new URLSearchParams(window.location.search);
-                const submitted = urlParams.get('submitted');
-                
-                if (submitted === 'true') {
+                const submitted = urlParams.get("submitted");
+
+                if (submitted === "true") {
                     // Find all forms with Alpine.js data
-                    const heroForm = document.getElementById('hero-form');
-                    const subscriptionForm = document.getElementById('subscription-form');
-                    
+                    const heroForm = document.getElementById("hero-form");
+                    const subscriptionForm = document.getElementById("subscription-form");
+
                     // Set the success state in Alpine.js
                     if (heroForm) {
-                        Alpine.store('heroForm', { success: true });
+                        Alpine.store("heroForm", { success: true });
                     }
-                    
+
                     if (subscriptionForm) {
-                        Alpine.store('subscriptionForm', { success: true });
+                        Alpine.store("subscriptionForm", { success: true });
                     }
-                    
+
                     // Scroll to the form section
-                    const formSection = document.getElementById('formulario');
+                    const formSection = document.getElementById("formulario");
                     if (formSection) {
                         setTimeout(() => {
                             formSection.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
+                                behavior: "smooth",
+                                block: "start"
                             });
                         }, 500);
                     }
