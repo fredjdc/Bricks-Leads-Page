@@ -146,11 +146,18 @@
                             <form
                                 id="hero-form"
                                 class="space-y-4"
-                                x-data="{ email: '', submitted: false }"
-                                @submit.prevent="submitted = true">
+                                action="https://formsubmit.co/707e6e012fa931048784ff0f766aa0df"
+                                method="POST"
+                                x-data="{ email: '', submitted: false, success: false }"
+                                x-show="!success"
+                                @submit="setTimeout(() => { success = true }, 200)">
+                                <input type="hidden" name="_subject" value="Nuevo registro en Bricks Leads">
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_next" value="https://bricksleads.com?submitted=true">
                                 <div class="flex flex-col sm:flex-row gap-3">
                                     <input
                                         type="email"
+                                        name="email"
                                         x-model="email"
                                         placeholder="Tu correo electrónico"
                                         class="flex-1 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
@@ -163,6 +170,11 @@
                                 </div>
                                 <p class="text-sm text-gray-200">📧 Te avisaremos cuando esté disponible, sin spam.</p>
                             </form>
+                            <div x-data="{}" x-show="success" class="text-center py-6">
+                                <div class="text-2xl mb-2">✅</div>
+                                <h4 class="text-xl font-semibold mb-2">¡Gracias por registrarte!</h4>
+                                <p class="text-gray-200">Te avisaremos cuando Bricks Leads esté disponible.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -303,9 +315,20 @@
                 </p>
 
                 <div class="bg-white rounded-2xl p-8 shadow-xl max-w-md mx-auto">
-                    <form class="space-y-4" x-data="{ email: '', submitted: false }" @submit.prevent="submitted = true">
+                    <form 
+                        id="subscription-form"
+                        class="space-y-4" 
+                        action="https://formsubmit.co/707e6e012fa931048784ff0f766aa0df" 
+                        method="POST"
+                        x-data="{ email: '', submitted: false, success: false }" 
+                        x-show="!success"
+                        @submit="setTimeout(() => { success = true }, 200)">
+                        <input type="hidden" name="_subject" value="Nuevo registro en Bricks Leads">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://bricksleads.com?submitted=true">
                         <input
                             type="email"
+                            name="email"
                             x-model="email"
                             placeholder="Tu correo electrónico"
                             class="w-full px-4 py-3 rounded-lg text-textMain placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white border border-gray-300"
@@ -316,7 +339,12 @@
                             Quiero enterarme
                         </button>
                     </form>
-                    <p class="text-sm text-textSecondary mt-4">
+                    <div x-data="{}" x-show="success" class="text-center py-6">
+                        <div class="text-3xl mb-3">✅</div>
+                        <h4 class="text-xl font-semibold mb-2">¡Gracias por registrarte!</h4>
+                        <p class="text-textSecondary">Te avisaremos cuando Bricks Leads esté disponible.</p>
+                    </div>
+                    <p class="text-sm text-textSecondary mt-4" x-show="!success">
                         📧 Te avisaremos cuando esté disponible. Sin spam, solo novedades importantes.
                     </p>
                 </div>
@@ -364,26 +392,39 @@
             </div>
         </footer>
 
-        <!-- Simple JavaScript for form handling -->
+        <!-- Simple JavaScript for handling -->
         <script>
-            // Form submission handling
+            // Check for URL parameters on page load (after form submission redirect)
             document.addEventListener("DOMContentLoaded", function () {
-                const forms = document.querySelectorAll("form");
-
-                forms.forEach((form) => {
-                    form.addEventListener("submit", function (e) {
-                        e.preventDefault();
-
-                        const email = form.querySelector('input[type="email"]').value;
-
-                        // Here you would typically send the email to your backend
-                        // For now, we'll just show a success message
-                        alert("¡Gracias! Te avisaremos cuando Bricks Leads esté disponible.");
-
-                        // Reset form
-                        form.reset();
-                    });
-                });
+                // Check if the URL has a submitted parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const submitted = urlParams.get('submitted');
+                
+                if (submitted === 'true') {
+                    // Find all forms with Alpine.js data
+                    const heroForm = document.getElementById('hero-form');
+                    const subscriptionForm = document.getElementById('subscription-form');
+                    
+                    // Set the success state in Alpine.js
+                    if (heroForm) {
+                        Alpine.store('heroForm', { success: true });
+                    }
+                    
+                    if (subscriptionForm) {
+                        Alpine.store('subscriptionForm', { success: true });
+                    }
+                    
+                    // Scroll to the form section
+                    const formSection = document.getElementById('formulario');
+                    if (formSection) {
+                        setTimeout(() => {
+                            formSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }, 500);
+                    }
+                }
             });
 
             // Smooth scrolling for navigation links
