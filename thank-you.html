@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- SEO Meta Tags -->
+        <title>¡Gracias por registrarte! | Bricks Leads</title>
+        <meta
+            name="description"
+            content="Gracias por registrarte en Bricks Leads. Te avisaremos cuando la app esté disponible." />
+
+        <!-- Open Graph Tags -->
+        <meta property="og:title" content="¡Gracias por registrarte! | Bricks Leads" />
+        <meta
+            property="og:description"
+            content="Gracias por registrarte en Bricks Leads. Te avisaremos cuando la app esté disponible." />
+        <meta property="og:image" content="images/image1.PNG" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://bricksleads.com/thank-you.html" />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="images/image1.PNG" />
+
+        <!-- TailwindCSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Custom TailwindCSS Configuration -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#007AFF", // Azul iOS
+                            secondaryBg: "#F2F2F7", // Fondo claro secundario
+                            success: "#34C759", // Verde iOS
+                            danger: "#FF3B30", // Rojo iOS
+                            textMain: "#1C1C1E", // Texto principal
+                            textSecondary: "#3C3C43" // Texto secundario
+                        },
+                        fontFamily: {
+                            sans: ["Inter", "system-ui", "sans-serif"]
+                        }
+                    }
+                }
+            };
+        </script>
+
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet" />
+
+        <style>
+            .hero-gradient {
+                background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+            }
+            .floating {
+                animation: floating 3s ease-in-out infinite;
+            }
+            @keyframes floating {
+                0% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+                100% {
+                    transform: translateY(0px);
+                }
+            }
+        </style>
+    </head>
+    <body class="bg-white font-sans">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-sm sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <h1 class="text-2xl font-bold text-primary">Bricks Leads</h1>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a
+                                href="index.html"
+                                class="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                                >Volver al inicio</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Thank You Section -->
+        <section class="hero-gradient text-white py-20 px-4 sm:px-6 lg:px-8 min-h-[80vh] flex items-center">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/20">
+                    <div class="w-20 h-20 bg-success rounded-full flex items-center justify-center mx-auto mb-8">
+                        <span class="text-4xl">✓</span>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-6">¡Gracias por registrarte!</h1>
+                    <p class="text-xl leading-relaxed mb-8">
+                        Te hemos agregado a nuestra lista de espera. Te avisaremos cuando Bricks Leads esté disponible.
+                    </p>
+                    <a
+                        href="index.html"
+                        class="inline-block bg-white text-primary font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                        >Volver al inicio</a
+                    >
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-200 py-8 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto text-center">
+                <p class="text-textSecondary">Hecho con ❤️ para Perú.</p>
+                <p class="text-sm text-gray-500 mt-2">© 2025 Bricks. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </body>
+</html>
