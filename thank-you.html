@@ -31,15 +31,28 @@
                 theme: {
                     extend: {
                         colors: {
-                            primary: "#007AFF", // Azul iOS
-                            secondaryBg: "#F2F2F7", // Fondo claro secundario
-                            success: "#34C759", // Verde iOS
-                            danger: "#FF3B30", // Rojo iOS
-                            textMain: "#1C1C1E", // Texto principal
-                            textSecondary: "#3C3C43" // Texto secundario
+                            primary: "#007AFF", // Bricks brand blue
+                            primaryDark: "#0056CC", // Darker blue for hover states
+                            secondary: "#5856D6", // Purple accent
+                            accent: "#34C759", // Success green
+                            warning: "#FF9500", // Warning orange
+                            danger: "#FF3B30", // Error red
+                            textPrimary: "#1C1C1E", // Primary text
+                            textSecondary: "#3C3C43", // Secondary text
+                            textTertiary: "#8E8E93", // Tertiary text
+                            background: "#FFFFFF", // Main background
+                            backgroundSecondary: "#F2F2F7", // Secondary background
+                            backgroundTertiary: "#E5E5EA", // Tertiary background
+                            border: "#C7C7CC", // Border color
+                            borderLight: "#E5E5EA" // Light border
                         },
                         fontFamily: {
                             sans: ["Inter", "system-ui", "sans-serif"]
+                        },
+                        boxShadow: {
+                            'soft': '0 2px 8px rgba(0, 0, 0, 0.08)',
+                            'medium': '0 4px 16px rgba(0, 0, 0, 0.12)',
+                            'large': '0 8px 32px rgba(0, 0, 0, 0.16)'
                         }
                     }
                 }
@@ -48,26 +61,53 @@
 
         <!-- Google Fonts -->
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
             rel="stylesheet" />
 
         <style>
+            /* Enhanced Bricks brand styling */
             .hero-gradient {
-                background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+                background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
             }
-            .floating {
-                animation: floating 3s ease-in-out infinite;
+
+            .card-gradient {
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
             }
-            @keyframes floating {
-                0% {
-                    transform: translateY(0px);
-                }
-                50% {
-                    transform: translateY(-10px);
-                }
-                100% {
-                    transform: translateY(0px);
-                }
+
+            .btn-primary {
+                background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
+                transition: all 0.3s ease;
+            }
+
+            .btn-primary:hover {
+                background: linear-gradient(135deg, #0056CC 0%, #004499 100%);
+                transform: translateY(-1px);
+                box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
+            }
+
+            /* Smooth scrolling */
+            html {
+                scroll-behavior: smooth;
+            }
+
+            /* Custom scrollbar */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #F2F2F7;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #C7C7CC;
+                border-radius: 4px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #8E8E93;
             }
         </style>
         <!-- Meta Pixel Code -->
@@ -100,9 +140,9 @@
         /></noscript>
         <!-- End Meta Pixel Code -->
     </head>
-    <body class="bg-white font-sans">
+    <body class="bg-background font-sans text-textPrimary antialiased">
         <!-- Navigation -->
-        <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="bg-background/95 backdrop-blur-md shadow-soft sticky top-0 z-50 border-b border-borderLight">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
@@ -111,10 +151,10 @@
                         </div>
                     </div>
                     <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-4">
+                        <div class="ml-10 flex items-baseline space-x-6">
                             <a
                                 href="index.html"
-                                class="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                                class="text-textSecondary hover:text-primary px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-backgroundSecondary"
                                 >Volver al inicio</a
                             >
                         </div>
@@ -124,19 +164,24 @@
         </nav>
 
         <!-- Thank You Section -->
-        <section class="hero-gradient text-white py-20 px-4 sm:px-6 lg:px-8 min-h-[80vh] flex items-center">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/20">
-                    <div class="w-20 h-20 bg-success rounded-full flex items-center justify-center mx-auto mb-8">
-                        <span class="text-4xl">✓</span>
+        <section class="hero-gradient text-white py-24 px-4 sm:px-6 lg:px-8 min-h-[80vh] flex items-center relative overflow-hidden">
+            <!-- Background decoration -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+            
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <div class="card-gradient rounded-3xl p-12 border border-white/20">
+                    <div class="w-24 h-24 bg-accent rounded-full flex items-center justify-center mx-auto mb-8 shadow-medium">
+                        <span class="text-4xl text-white">✓</span>
                     </div>
-                    <h1 class="text-3xl md:text-4xl font-bold mb-6">¡Gracias por registrarte!</h1>
-                    <p class="text-xl leading-relaxed mb-8">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-8 leading-tight tracking-tight">¡Gracias por registrarte!</h1>
+                    <p class="text-xl leading-relaxed mb-10 text-white/90 font-light">
                         Te hemos agregado a nuestra lista de espera. Te avisaremos cuando Bricks Leads esté disponible.
                     </p>
                     <a
                         href="index.html"
-                        class="inline-block bg-white text-primary font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                        class="inline-block btn-primary text-white font-semibold px-8 py-4 rounded-xl hover:bg-primaryDark transition-all duration-200"
                         >Volver al inicio</a
                     >
                 </div>
@@ -144,10 +189,10 @@
         </section>
 
         <!-- Footer -->
-        <footer class="bg-white border-t border-gray-200 py-8 px-4 sm:px-6 lg:px-8">
+        <footer class="bg-background border-t border-borderLight py-12 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto text-center">
-                <p class="text-textSecondary">Hecho con ❤️ para Perú.</p>
-                <p class="text-sm text-gray-500 mt-2">© 2025 Bricks. Todos los derechos reservados.</p>
+                <p class="text-textSecondary text-lg">Hecho con ❤️ para Perú.</p>
+                <p class="text-sm text-textTertiary mt-3">© 2025 Bricks. Todos los derechos reservados.</p>
             </div>
         </footer>
     </body>

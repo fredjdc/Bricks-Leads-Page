@@ -37,15 +37,28 @@
                 theme: {
                     extend: {
                         colors: {
-                            primary: "#007AFF", // Azul iOS
-                            secondaryBg: "#F2F2F7", // Fondo claro secundario
-                            success: "#34C759", // Verde iOS
-                            danger: "#FF3B30", // Rojo iOS
-                            textMain: "#1C1C1E", // Texto principal
-                            textSecondary: "#3C3C43" // Texto secundario
+                            primary: "#007AFF", // Bricks brand blue
+                            primaryDark: "#0056CC", // Darker blue for hover states
+                            secondary: "#5856D6", // Purple accent
+                            accent: "#34C759", // Success green
+                            warning: "#FF9500", // Warning orange
+                            danger: "#FF3B30", // Error red
+                            textPrimary: "#1C1C1E", // Primary text
+                            textSecondary: "#3C3C43", // Secondary text
+                            textTertiary: "#8E8E93", // Tertiary text
+                            background: "#FFFFFF", // Main background
+                            backgroundSecondary: "#F2F2F7", // Secondary background
+                            backgroundTertiary: "#E5E5EA", // Tertiary background
+                            border: "#C7C7CC", // Border color
+                            borderLight: "#E5E5EA" // Light border
                         },
                         fontFamily: {
                             sans: ["Inter", "system-ui", "sans-serif"]
+                        },
+                        boxShadow: {
+                            soft: "0 2px 8px rgba(0, 0, 0, 0.08)",
+                            medium: "0 4px 16px rgba(0, 0, 0, 0.12)",
+                            large: "0 8px 32px rgba(0, 0, 0, 0.16)"
                         }
                     }
                 }
@@ -54,32 +67,32 @@
 
         <!-- Google Fonts -->
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
             rel="stylesheet" />
 
         <style>
-            /* Custom styles for better UX */
-            .gradient-bg {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            }
-
+            /* Enhanced Bricks brand styling */
             .hero-gradient {
                 background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
             }
 
+            .card-gradient {
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
             .floating {
-                animation: floating 3s ease-in-out infinite;
+                animation: floating 4s ease-in-out infinite;
             }
 
             @keyframes floating {
-                0% {
-                    transform: translateY(0px);
+                0%,
+                100% {
+                    transform: translateY(0px) rotate(-2deg);
                 }
                 50% {
-                    transform: translateY(-10px);
-                }
-                100% {
-                    transform: translateY(0px);
+                    transform: translateY(-15px) rotate(-1deg);
                 }
             }
 
@@ -89,11 +102,64 @@
 
             @keyframes pulse-glow {
                 from {
-                    box-shadow: 0 0 20px rgba(0, 122, 255, 0.3);
+                    box-shadow: 0 0 20px rgba(0, 122, 255, 0.4);
                 }
                 to {
-                    box-shadow: 0 0 30px rgba(0, 122, 255, 0.6);
+                    box-shadow: 0 0 30px rgba(0, 122, 255, 0.7);
                 }
+            }
+
+            .feature-card {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .feature-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            }
+
+            .btn-primary {
+                background: linear-gradient(135deg, #007aff 0%, #0056cc 100%);
+                transition: all 0.3s ease;
+            }
+
+            .btn-primary:hover {
+                background: linear-gradient(135deg, #0056cc 0%, #004499 100%);
+                transform: translateY(-1px);
+                box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
+            }
+
+            .input-field {
+                transition: all 0.3s ease;
+                border: 2px solid transparent;
+            }
+
+            .input-field:focus {
+                border-color: #007aff;
+                box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+            }
+
+            /* Smooth scrolling */
+            html {
+                scroll-behavior: smooth;
+            }
+
+            /* Custom scrollbar */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #f2f2f7;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #c7c7cc;
+                border-radius: 4px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #8e8e93;
             }
         </style>
 
@@ -127,9 +193,9 @@
         /></noscript>
         <!-- End Meta Pixel Code -->
     </head>
-    <body class="bg-white font-sans">
+    <body class="bg-background font-sans text-textPrimary antialiased">
         <!-- Navigation -->
-        <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="bg-background/95 backdrop-blur-md shadow-soft sticky top-0 z-50 border-b border-borderLight">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
@@ -138,15 +204,15 @@
                         </div>
                     </div>
                     <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-4">
+                        <div class="ml-10 flex items-baseline space-x-6">
                             <a
                                 href="#beneficios"
-                                class="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                                class="text-textSecondary hover:text-primary px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-backgroundSecondary"
                                 >Beneficios</a
                             >
                             <a
                                 href="#formulario"
-                                class="bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
+                                class="btn-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200"
                                 >Quiero enterarme</a
                             >
                         </div>
@@ -156,27 +222,32 @@
         </nav>
 
         <!-- Hero Section -->
-        <section class="hero-gradient text-white py-20 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <section class="hero-gradient text-white py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+            <!-- Background decoration -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <!-- Text Content -->
-                    <div class="space-y-8">
-                        <div class="space-y-4">
-                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                    <div class="space-y-10">
+                        <div class="space-y-6">
+                            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
                                 ¡Muy Pronto! Una nueva forma de trabajar en bienes raíces
                             </h1>
-                            <p class="text-xl md:text-2xl text-gray-100 leading-relaxed">
+                            <p class="text-xl md:text-2xl text-white/90 leading-relaxed font-light">
                                 Capta, gestiona y organiza tu negocio inmobiliario desde donde estés. Gratis en iPhone,
                                 iPad y Mac.
                             </p>
                         </div>
 
                         <!-- Email Capture Form -->
-                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                            <h3 class="text-lg font-semibold mb-4">¡Sé el primero en enterarte!</h3>
+                        <div class="card-gradient rounded-3xl p-8 border border-white/20">
+                            <h3 class="text-xl font-semibold mb-6 text-white">¡Sé el primero en enterarte!</h3>
                             <form
                                 id="hero-form"
-                                class="space-y-4"
+                                class="space-y-5"
                                 action="https://formsubmit.co/707e6e012fa931048784ff0f766aa0df"
                                 method="POST"
                                 x-data="{ email: '', submitted: false, success: false }"
@@ -185,26 +256,29 @@
                                 <input type="hidden" name="_subject" value="Nuevo registro en Bricks Leads" />
                                 <input type="hidden" name="_captcha" value="false" />
                                 <input type="hidden" name="_next" value="https://leads.bricks.pe/thank-you" />
-                                <div class="flex flex-col sm:flex-row gap-3">
+                                <div class="flex flex-col sm:flex-row gap-4">
                                     <input
                                         type="email"
                                         name="email"
                                         x-model="email"
                                         placeholder="Tu correo electrónico"
-                                        class="flex-1 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
+                                        class="input-field flex-1 px-5 py-4 rounded-xl text-textPrimary placeholder-textTertiary focus:outline-none bg-white/90 backdrop-blur-sm"
                                         required />
                                     <button
                                         type="submit"
-                                        class="bg-primary hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 pulse-glow">
+                                        class="btn-primary text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 pulse-glow whitespace-nowrap">
                                         Quiero enterarme
                                     </button>
                                 </div>
-                                <p class="text-sm text-gray-200">📧 Te avisaremos cuando esté disponible, sin spam.</p>
+                                <p class="text-sm text-white/80">📧 Te avisaremos cuando esté disponible, sin spam.</p>
                             </form>
-                            <div x-data="{}" x-show="success" class="text-center py-6">
-                                <div class="text-2xl mb-2">✅</div>
-                                <h4 class="text-xl font-semibold mb-2">¡Gracias por registrarte!</h4>
-                                <p class="text-gray-200">Te avisaremos cuando Bricks Leads esté disponible.</p>
+                            <div x-data="{}" x-show="success" class="text-center py-8">
+                                <div
+                                    class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-2xl text-white">✓</span>
+                                </div>
+                                <h4 class="text-xl font-semibold mb-3 text-white">¡Gracias por registrarte!</h4>
+                                <p class="text-white/80">Te avisaremos cuando Bricks Leads esté disponible.</p>
                             </div>
                         </div>
                     </div>
@@ -214,11 +288,11 @@
                         <div class="relative space-y-6">
                             <!-- Desktop Mockup (image2.png) -->
                             <div class="relative floating" style="animation-delay: 0s">
-                                <div class="rounded-3xl transform -rotate-2">
+                                <div class="transform -rotate-2">
                                     <img
                                         src="images/heroimage1.png"
                                         alt="Bricks Leads App - Desktop Dashboard"
-                                        class="w-auto" />
+                                        class="w-auto max-w-full" />
                                 </div>
                             </div>
                         </div>
@@ -228,13 +302,13 @@
         </section>
 
         <!-- Beneficios Clave Section -->
-        <section id="beneficios" class="py-20 px-4 sm:px-6 lg:px-8 bg-secondaryBg">
+        <section id="beneficios" class="py-24 px-4 sm:px-6 lg:px-8 bg-backgroundSecondary">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <div class="text-center mb-20">
+                    <h2 class="text-4xl md:text-5xl font-bold text-textPrimary mb-6 leading-tight">
                         Todo lo que necesitas en una sola app
                     </h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p class="text-xl text-textSecondary max-w-3xl mx-auto leading-relaxed">
                         Eficiente. Intuitiva. Creada para agentes que están comenzando y para quienes manejan cientos de
                         propiedades.
                     </p>
@@ -242,11 +316,11 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Beneficio 1 -->
-                    <div class="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                    <div class="feature-card bg-background rounded-2xl p-8 shadow-soft border border-borderLight">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
                             <span class="text-3xl">⏳</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-textMain mb-3">Ahorra tiempo</h3>
+                        <h3 class="text-xl font-semibold text-textPrimary mb-4">Ahorra tiempo</h3>
                         <p class="text-textSecondary leading-relaxed">
                             Una app simple y rápida que te permite gestionar todo desde un solo lugar, sin
                             complicaciones innecesarias.
@@ -254,11 +328,11 @@
                     </div>
 
                     <!-- Beneficio 2 -->
-                    <div class="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+                    <div class="feature-card bg-background rounded-2xl p-8 shadow-soft border border-borderLight">
+                        <div class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-6">
                             <span class="text-3xl">📲</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-textMain mb-3">Funciona sin conexión</h3>
+                        <h3 class="text-xl font-semibold text-textPrimary mb-4">Funciona sin conexión</h3>
                         <p class="text-textSecondary leading-relaxed">
                             Modo offline completo. Trabajá desde cualquier lugar, incluso sin internet, y sincronizá
                             cuando vuelvas a conectarte.
@@ -266,22 +340,22 @@
                     </div>
 
                     <!-- Beneficio 3 -->
-                    <div class="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
+                    <div class="feature-card bg-background rounded-2xl p-8 shadow-soft border border-borderLight">
+                        <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6">
                             <span class="text-3xl">🗂️</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-textMain mb-3">Gestión centralizada</h3>
+                        <h3 class="text-xl font-semibold text-textPrimary mb-4">Gestión centralizada</h3>
                         <p class="text-textSecondary leading-relaxed">
                             Propiedades, clientes, visitas y más. Todo organizado y accesible desde un solo lugar.
                         </p>
                     </div>
 
                     <!-- Beneficio 4 -->
-                    <div class="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6">
+                    <div class="feature-card bg-background rounded-2xl p-8 shadow-soft border border-borderLight">
+                        <div class="w-16 h-16 bg-warning/10 rounded-2xl flex items-center justify-center mb-6">
                             <span class="text-3xl">🤝</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-textMain mb-3">Tu negocio, gratis</h3>
+                        <h3 class="text-xl font-semibold text-textPrimary mb-4">Tu negocio, gratis</h3>
                         <p class="text-textSecondary leading-relaxed">
                             Disfruta todas las funciones para organizar hasta 500 clientes y propiedades. Sin costos
                             ocultos.
@@ -289,11 +363,11 @@
                     </div>
 
                     <!-- Beneficio 5 -->
-                    <div class="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
-                            <span class="text-3xl"></span>
+                    <div class="feature-card bg-background rounded-2xl p-8 shadow-soft border border-borderLight">
+                        <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                            <span class="text-3xl">🍎</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-textMain mb-3">Sincronización aútomatica</h3>
+                        <h3 class="text-xl font-semibold text-textPrimary mb-4">Sincronización automática</h3>
                         <p class="text-textSecondary leading-relaxed">
                             Compatible con iPhone, iPad, y Mac. Sincronización perfecta entre todos tus dispositivos
                             Apple.
@@ -301,11 +375,11 @@
                     </div>
 
                     <!-- Beneficio 6 -->
-                    <div class="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
-                        <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6">
+                    <div class="feature-card bg-background rounded-2xl p-8 shadow-soft border border-borderLight">
+                        <div class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-6">
                             <span class="text-3xl">🇵🇪</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-textMain mb-3">Hecha en Perú</h3>
+                        <h3 class="text-xl font-semibold text-textPrimary mb-4">Hecha en Perú</h3>
                         <p class="text-textSecondary leading-relaxed">
                             Desarrollada específicamente para el mercado inmobiliario peruano, con funcionalidades
                             locales.
@@ -316,36 +390,47 @@
         </section>
 
         <!-- Pensada para vos Section -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <section class="py-24 px-4 sm:px-6 lg:px-8 bg-background">
             <div class="max-w-4xl mx-auto text-center">
-                <div class="bg-secondaryBg rounded-3xl p-8 md:p-12 shadow-xl">
-                    <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="text-3xl text-white">💙</span>
+                <div class="bg-backgroundSecondary rounded-3xl p-12 shadow-medium">
+                    <div
+                        class="w-24 h-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-8 shadow-medium">
+                        <span class="text-4xl text-white">💙</span>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-textMain mb-6">Pensada para ti</h2>
-                    <p class="text-xl text-textSecondary leading-relaxed max-w-2xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold text-textPrimary mb-8 leading-tight">Pensada para ti</h2>
+                    <p class="text-xl text-textSecondary leading-relaxed max-w-2xl mx-auto mb-10">
                         Bricks Leads fue diseñada para agentes: sin complicaciones, lista para trabajar desde cualquier
                         lugar.
                     </p>
-                    <div class="mt-8 flex flex-wrap justify-center gap-4 text-sm text-textSecondary">
-                        <span class="bg-white px-3 py-1 rounded-full">✅ Sin complicaciones</span>
-                        <span class="bg-white px-3 py-1 rounded-full">📱 Lista para usar</span>
-                        <span class="bg-white px-3 py-1 rounded-full">⚡ Rápida y eficiente</span>
+                    <div class="flex flex-wrap justify-center gap-4 text-sm text-textSecondary">
+                        <span class="bg-background px-4 py-2 rounded-full shadow-soft border border-borderLight"
+                            >✅ Sin complicaciones</span
+                        >
+                        <span class="bg-background px-4 py-2 rounded-full shadow-soft border border-borderLight"
+                            >📱 Lista para usar</span
+                        >
+                        <span class="bg-background px-4 py-2 rounded-full shadow-soft border border-borderLight"
+                            >⚡ Rápida y eficiente</span
+                        >
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Formulario de Suscripción Section -->
-        <section id="formulario" class="py-20 px-4 sm:px-6 lg:px-8 bg-secondaryBg">
+        <section id="formulario" class="py-24 px-4 sm:px-6 lg:px-8 bg-backgroundSecondary">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-textMain mb-6">¿Listo para revolucionar tu trabajo?</h2>
-                <p class="text-xl text-textSecondary mb-8">Únete a la lista de espera y sé el primero en probar</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-textPrimary mb-6 leading-tight">
+                    ¿Listo para revolucionar tu trabajo?
+                </h2>
+                <p class="text-xl text-textSecondary mb-12 leading-relaxed">
+                    Únete a la lista de espera y sé el primero en probar
+                </p>
 
-                <div class="bg-white rounded-2xl p-8 shadow-xl max-w-md mx-auto">
+                <div class="bg-background rounded-3xl p-10 shadow-large max-w-lg mx-auto border border-borderLight">
                     <form
                         id="subscription-form"
-                        class="space-y-4"
+                        class="space-y-6"
                         action="https://formsubmit.co/707e6e012fa931048784ff0f766aa0df"
                         method="POST"
                         x-data="{ email: '', submitted: false, success: false }"
@@ -359,20 +444,22 @@
                             name="email"
                             x-model="email"
                             placeholder="Tu correo electrónico"
-                            class="w-full px-4 py-3 rounded-lg text-textMain placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white border border-gray-300"
+                            class="input-field w-full px-5 py-4 rounded-xl text-textPrimary placeholder-textTertiary focus:outline-none bg-backgroundSecondary border border-borderLight"
                             required />
                         <button
                             type="submit"
-                            class="w-full bg-primary hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200">
+                            class="w-full btn-primary text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200">
                             Quiero enterarme
                         </button>
                     </form>
-                    <div x-data="{}" x-show="success" class="text-center py-6">
-                        <div class="text-3xl mb-3">✅</div>
-                        <h4 class="text-xl font-semibold mb-2">¡Gracias por registrarte!</h4>
+                    <div x-data="{}" x-show="success" class="text-center py-8">
+                        <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl text-white">✓</span>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-3 text-textPrimary">¡Gracias por registrarte!</h4>
                         <p class="text-textSecondary">Te avisaremos cuando Bricks Leads esté disponible.</p>
                     </div>
-                    <p class="text-sm text-textSecondary mt-4" x-show="!success">
+                    <p class="text-sm text-textTertiary mt-6" x-show="!success">
                         📧 Te avisaremos cuando esté disponible, sin spam.
                     </p>
                 </div>
@@ -380,42 +467,34 @@
         </section>
 
         <!-- Footer -->
-        <footer class="bg-white border-t border-gray-200 py-12 px-4 sm:px-6 lg:px-8">
+        <footer class="bg-background border-t border-borderLight py-16 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <!-- Brand -->
                     <div>
-                        <h3 class="text-2xl font-bold text-primary mb-4">Bricks Leads</h3>
-                        <p class="text-textSecondary">La nueva forma de trabajar en bienes raíces en Perú.</p>
+                        <h3 class="text-3xl font-bold text-primary mb-6">Bricks Leads</h3>
+                        <p class="text-textSecondary text-lg leading-relaxed">
+                            La nueva forma de trabajar en bienes raíces en Perú.
+                        </p>
                     </div>
-
-                    <!-- Links 
-                    <div>
-                        <h4 class="text-lg font-semibold text-textMain mb-4">Enlaces</h4>
-                        <ul class="space-y-2 text-textSecondary">
-                            <li><a href="#" class="hover:text-primary transition-colors">Política de privacidad</a></li>
-                            <li><a href="#" class="hover:text-primary transition-colors">Términos de servicio</a></li>
-                            <li><a href="#" class="hover:text-primary transition-colors">Soporte</a></li>
-                        </ul>
-                    </div> -->
 
                     <!-- Contact -->
                     <div>
-                        <h4 class="text-lg font-semibold text-textMain mb-4">Contacto</h4>
-                        <p class="text-textSecondary">
+                        <h4 class="text-xl font-semibold text-textPrimary mb-6">Contacto</h4>
+                        <p class="text-textSecondary leading-relaxed">
                             ¿Tenés preguntas? Escribinos a:<br />
                             <a
-                                href="mailto:hola@bricksleads.com"
-                                class="text-primary hover:text-blue-700 transition-colors">
+                                href="mailto:hello@bricks.pe"
+                                class="text-primary hover:text-primaryDark transition-colors font-medium">
                                 hello@bricks.pe
                             </a>
                         </p>
                     </div>
                 </div>
 
-                <div class="border-t border-gray-200 mt-8 pt-8 text-center">
-                    <p class="text-textSecondary">Hecho con ❤️ para Perú.</p>
-                    <p class="text-sm text-gray-500 mt-2">© 2025 Bricks. Todos los derechos reservados.</p>
+                <div class="border-t border-borderLight mt-12 pt-8 text-center">
+                    <p class="text-textSecondary text-lg">Hecho con ❤️ para Perú.</p>
+                    <p class="text-sm text-textTertiary mt-3">© 2025 Bricks. Todos los derechos reservados.</p>
                 </div>
             </div>
         </footer>
