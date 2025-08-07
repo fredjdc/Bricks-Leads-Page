@@ -256,14 +256,189 @@ rounded-full  /* 50% */
 }
 ```
 
-#### Icon Containers
-```css
-/* Feature icons */
-w-12 h-12 bg-brand/10 rounded-2xl flex items-center justify-center mb-4
+---
 
-/* Success icons */
-w-5 h-5 text-success mr-2 mt-1
+## 🎨 Icon System
+
+### Icon Container Specifications
+
+#### Feature Icons (Primary)
+```css
+/* Standard feature icon container */
+w-16 h-16 bg-brand/10 rounded-2xl flex items-center justify-center mb-6
+
+/* Icon size within container */
+text-3xl
 ```
+
+#### Success Icons
+```css
+/* Success feature icon container */
+w-16 h-16 bg-success/10 rounded-2xl flex items-center justify-center mb-6
+
+/* Success accent icon container */
+w-16 h-16 bg-success rounded-full flex items-center justify-center mx-auto mb-4
+```
+
+#### Accent Icons
+```css
+/* Accent feature icon container */
+w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-6
+```
+
+#### Hero Icons (Large)
+```css
+/* Large hero icon container */
+w-24 h-24 bg-brand rounded-full flex items-center justify-center mx-auto mb-8 shadow-soft-lg
+
+/* Icon size within hero container */
+text-4xl text-white
+```
+
+#### App Family Icons (Medium)
+```css
+/* Medium app family icon container */
+w-20 h-20 bg-brand/10 rounded-2xl flex items-center justify-center mx-auto mb-6
+
+/* Success app family icon container */
+w-20 h-20 bg-success/10 rounded-2xl flex items-center justify-center mx-auto mb-6
+
+/* Icon size within app family container */
+text-4xl
+```
+
+#### Small Icons
+```css
+/* Small icon container */
+w-16 h-16 bg-brand rounded-full flex items-center justify-center mx-auto mb-6
+
+/* Icon size within small container */
+text-2xl text-white
+```
+
+### Icon Usage Guidelines
+
+#### Container Types
+1. **Rounded Square (rounded-2xl)**: Used for feature icons and app family icons
+   - Creates a modern, card-like appearance
+   - Provides consistent spacing and alignment
+   - Works well with colored backgrounds
+
+2. **Circle (rounded-full)**: Used for hero icons and success indicators
+   - Creates emphasis and visual hierarchy
+   - Often used with solid brand colors
+   - Provides a more prominent appearance
+
+#### Background Colors
+1. **Brand/10 (10% opacity)**: Primary feature icons
+   - Subtle brand presence without overwhelming
+   - Maintains readability of emoji icons
+
+2. **Success/10 (10% opacity)**: Success-related features
+   - Indicates positive actions or benefits
+   - Maintains consistency with success color scheme
+
+3. **Accent/10 (10% opacity)**: Neutral features
+   - Used for general features without specific color association
+
+4. **Solid Brand**: Hero and prominent icons
+   - Creates strong visual impact
+   - Used sparingly for maximum effect
+
+5. **Solid Success**: Success indicators
+   - Clear visual confirmation
+   - Used for completion states
+
+#### Icon Sizes
+1. **text-2xl**: Small icons (24px)
+   - Used in compact spaces
+   - Secondary information
+
+2. **text-3xl**: Standard feature icons (30px)
+   - Primary feature representation
+   - Good balance of visibility and space
+
+3. **text-4xl**: Large icons (36px)
+   - Hero sections and app family
+   - Maximum visual impact
+
+#### Spacing Guidelines
+1. **mb-6**: Standard bottom margin for feature icons
+   - Provides consistent spacing with headings
+   - Maintains visual rhythm
+
+2. **mb-4**: Reduced margin for success indicators
+   - Tighter spacing for compact layouts
+   - Used in lists or smaller cards
+
+3. **mb-8**: Extended margin for hero icons
+   - Creates more breathing room
+   - Emphasizes importance
+
+#### Alignment
+1. **mx-auto**: Center alignment for standalone icons
+   - Used in hero sections and app family cards
+   - Creates balanced layout
+
+2. **Default alignment**: Left alignment for feature cards
+   - Maintains consistent text alignment
+   - Follows natural reading flow
+
+### Icon Implementation Examples
+
+#### Feature Card Icon
+```html
+<div class="w-16 h-16 bg-brand/10 rounded-2xl flex items-center justify-center mb-6">
+    <span class="text-3xl">⏳</span>
+</div>
+```
+
+#### Success Indicator Icon
+```html
+<div class="w-16 h-16 bg-success rounded-full flex items-center justify-center mx-auto mb-4">
+    <span class="text-3xl">✅</span>
+</div>
+```
+
+#### Hero Icon
+```html
+<div class="w-24 h-24 bg-brand rounded-full flex items-center justify-center mx-auto mb-8 shadow-soft-lg">
+    <span class="text-4xl text-white">💙</span>
+</div>
+```
+
+#### App Family Icon
+```html
+<div class="w-20 h-20 bg-brand/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+    <span class="text-4xl">📱</span>
+</div>
+```
+
+### Icon Color Guidelines
+
+#### Emoji Icons
+- Use native emoji colors for maximum recognition
+- Ensure sufficient contrast with background
+- Maintain consistent sizing across similar contexts
+
+#### Text Icons
+- Use `text-white` for solid colored backgrounds
+- Use default text color for transparent backgrounds
+- Ensure accessibility with proper contrast ratios
+
+### Icon Accessibility
+
+#### Best Practices
+1. **Consistent sizing**: Maintain predictable icon sizes
+2. **Clear meaning**: Icons should be self-explanatory or have labels
+3. **Contrast**: Ensure sufficient contrast with backgrounds
+4. **Spacing**: Provide adequate touch targets (minimum 44px)
+5. **Semantic meaning**: Use icons that clearly represent their function
+
+#### Screen Reader Support
+- Add `aria-label` attributes for decorative icons
+- Use semantic HTML elements where appropriate
+- Provide text alternatives for icon-only buttons
 
 ---
 
@@ -524,6 +699,9 @@ tailwind.config = {
 - Maintain proper contrast ratios for accessibility
 - Use rounded corners consistently (rounded-lg, rounded-xl, rounded-2xl)
 - Implement smooth transitions (0.2s or 0.3s ease)
+- Use emoji icons with consistent container styling
+- Apply appropriate background colors for icon containers
+- Maintain consistent icon sizing within similar contexts
 
 ### Don'ts ❌
 - Don't use colors outside the defined palette
@@ -533,6 +711,9 @@ tailwind.config = {
 - Don't use border radius values outside the defined system
 - Don't use gradients unless specified in the guidelines
 - Don't use animations that are too fast or jarring
+- Don't use icons without proper containers
+- Don't mix different icon container styles inconsistently
+- Don't use icons that are too small to be easily readable
 
 ### Accessibility
 - Ensure sufficient color contrast (WCAG AA compliant)
@@ -540,6 +721,8 @@ tailwind.config = {
 - Provide focus indicators for keyboard navigation
 - Maintain readable font sizes (minimum 16px for body text)
 - Use proper heading hierarchy (h1, h2, h3, etc.)
+- Provide alternative text for decorative icons
+- Ensure icon containers meet minimum touch target sizes
 
 ---
 
@@ -558,6 +741,7 @@ tailwind.config = {
 - **Forms:** Clear labels, proper spacing, and focus states
 - **Navigation:** Simple, intuitive menu structures
 - **Typography:** Consistent font weights and sizes
+- **Icons:** Consistent container styling and sizing patterns
 
 ### File Structure
 ```
@@ -577,7 +761,14 @@ Bricks-Calc-Page/
 
 ## 🔄 Version History
 
-### v2.0 (Current)
+### v2.1 (Current)
+- Added comprehensive icon system specifications
+- Included detailed icon container guidelines
+- Added icon usage patterns and examples
+- Enhanced accessibility guidelines for icons
+- Updated component patterns to include icon consistency
+
+### v2.0 (Previous)
 - Updated to reflect actual implemented styles
 - Added comprehensive TailwindCSS configuration
 - Included all color variations and semantic naming
@@ -585,7 +776,7 @@ Bricks-Calc-Page/
 - Enhanced accessibility guidelines
 - Included animation and interaction patterns
 
-### v1.0 (Previous)
+### v1.0 (Initial)
 - Initial brand implementation
 - Basic color and typography guidelines
 - Simple component specifications
@@ -600,12 +791,15 @@ Bricks-Calc-Page/
 3. **Soft Shadows:** Used to create subtle depth without being overwhelming
 4. **Rounded Corners:** Applied consistently to create a friendly, approachable feel
 5. **HSL Color System:** Used in Tailwind config for better color manipulation
+6. **Emoji Icons:** Used for universal recognition and consistent cross-platform appearance
+7. **Icon Containers:** Provide consistent visual structure and spacing
 
 ### Performance Considerations
 - Use CSS custom properties for consistent theming
 - Implement efficient animations with transform and opacity
 - Optimize images and assets for web delivery
 - Use semantic HTML for better SEO and accessibility
+- Minimize icon file sizes and use appropriate formats
 
 ---
 
