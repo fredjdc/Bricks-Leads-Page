@@ -1,14 +1,15 @@
-# Bricks Leads - Brand Guidelines
+# Bricks - Brand Guidelines
 
 ## 🎨 Brand Overview
 
-Bricks Leads is a real estate agent management app designed for the Peruvian market. The brand follows the same design principles as the main Bricks.pe mortgage calculator app, maintaining consistency across the product ecosystem.
+Bricks is a mortgage calculator app designed for the Peruvian market, focusing on simplicity, clarity, and professional financial tools. The brand emphasizes trust, accessibility, and modern design principles.
 
 **Brand Personality:**
 - Professional yet approachable
 - Modern and clean
 - Trustworthy and reliable
 - User-friendly and intuitive
+- Accessible to all users
 
 ---
 
@@ -17,34 +18,47 @@ Bricks Leads is a real estate agent management app designed for the Peruvian mar
 ### Primary Colors
 ```css
 /* Main Brand Blue */
-primary: "#007AFF"        /* Primary brand color */
-primaryDark: "#0056CC"    /* Darker blue for hover states */
+brand: "#007AFF"        /* Primary brand color - Apple Blue */
+brand-foreground: "hsl(0 0% 98%)"  /* White text on brand background */
+
+/* Success Colors */
+success: "#34C85A"      /* Success green */
+success-foreground: "hsl(0 0% 98%)"  /* White text on success background */
 
 /* Accent Colors */
-secondary: "#5856D6"      /* Purple accent */
-accent: "#34C759"         /* Success green */
-warning: "#FF9500"        /* Warning orange */
-danger: "#FF3B30"         /* Error red */
+accent: "hsl(240 4.8% 95.9%)"      /* Light gray accent */
+accent-foreground: "hsl(240 5.9% 10%)"  /* Dark text on accent background */
 ```
 
 ### Text Colors
 ```css
-textPrimary: "#1C1C1E"    /* Primary text - Dark gray */
-textSecondary: "#3C3C43"  /* Secondary text - Medium gray */
-textTertiary: "#8E8E93"   /* Tertiary text - Light gray */
+foreground: "hsl(240 10% 3.9%)"    /* Primary text - Very dark gray */
+muted-foreground: "hsl(240 3.8% 46.1%)"  /* Secondary text - Medium gray */
 ```
 
 ### Background Colors
 ```css
-background: "#FFFFFF"           /* Main background - White */
-backgroundSecondary: "#F2F2F7" /* Secondary background - Light gray */
-backgroundTertiary: "#E5E5EA"  /* Tertiary background - Lighter gray */
+background: "hsl(0 0% 100%)"           /* Main background - White */
+card: "hsl(0 0% 100%)"                 /* Card background - White */
+card-foreground: "hsl(240 10% 3.9%)"   /* Card text - Dark gray */
+popover: "hsl(0 0% 100%)"              /* Popover background - White */
+popover-foreground: "hsl(240 10% 3.9%)" /* Popover text - Dark gray */
 ```
 
-### Border Colors
+### Border & Input Colors
 ```css
-border: "#C7C7CC"        /* Standard border */
-borderLight: "#E5E5EA"   /* Light border */
+border: "hsl(240 5.9% 90%)"        /* Standard border - Light gray */
+input: "hsl(240 5.9% 90%)"         /* Input border - Light gray */
+ring: "hsl(240 5% 64.9%)"          /* Focus ring - Medium gray */
+```
+
+### Additional Colors
+```css
+secondary: "hsl(240 4.8% 95.9%)"   /* Secondary background - Very light gray */
+secondary-foreground: "hsl(240 5.9% 10%)"  /* Secondary text - Dark gray */
+destructive: "hsl(0 84.2% 60.2%)"  /* Error red */
+destructive-foreground: "hsl(0 0% 98%)"    /* White text on error background */
+muted: "hsl(240 4.8% 95.9%)"       /* Muted background - Very light gray */
 ```
 
 ---
@@ -53,18 +67,18 @@ borderLight: "#E5E5EA"   /* Light border */
 
 ### Font Family
 - **Primary Font:** Inter (Google Fonts)
-- **Fallback:** system-ui, sans-serif
 - **Weights:** 300, 400, 500, 600, 700, 800
+- **Fallback:** system-ui, sans-serif
 
 ### Font Usage Guidelines
 
 #### Headings
 ```css
 /* Hero Title */
-text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight
+text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter
 
 /* Section Headings */
-text-4xl md:text-5xl font-bold leading-tight
+text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl
 
 /* Subsection Headings */
 text-xl font-semibold
@@ -73,7 +87,7 @@ text-xl font-semibold
 #### Body Text
 ```css
 /* Large Body Text */
-text-xl leading-relaxed font-light
+text-xl leading-relaxed
 
 /* Standard Body Text */
 text-base leading-relaxed
@@ -92,46 +106,23 @@ text-sm font-medium
 
 ## 🎨 Design Elements
 
-### Gradients
-
-#### Hero Gradient
-```css
-.hero-gradient {
-    background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
-}
-```
-
-#### Card Gradient (Glassmorphism)
-```css
-.card-gradient {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-```
-
-#### Button Gradient
-```css
-.btn-primary {
-    background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
-}
-
-.btn-primary:hover {
-    background: linear-gradient(135deg, #0056CC 0%, #004499 100%);
-}
-```
-
 ### Shadows
 
 ```css
 /* Soft Shadow */
-shadow-soft: "0 2px 8px rgba(0, 0, 0, 0.08)"
+shadow-soft: "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)"
 
-/* Medium Shadow */
-shadow-medium: "0 4px 16px rgba(0, 0, 0, 0.12)"
+/* Soft Medium Shadow */
+shadow-soft-md: "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)"
 
-/* Large Shadow */
-shadow-large: "0 8px 32px rgba(0, 0, 0, 0.16)"
+/* Soft Large Shadow */
+shadow-soft-lg: "0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)"
+
+/* Soft Extra Large Shadow */
+shadow-soft-xl: "0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01)"
+
+/* Hover Shadow */
+shadow-hover: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
 ```
 
 ### Border Radius
@@ -152,6 +143,22 @@ rounded-3xl   /* 24px */
 rounded-full  /* 50% */
 ```
 
+### Gradients
+
+#### Hero Background
+```css
+.bg-gradient-to-b {
+    background: linear-gradient(to bottom, from-slate-50 to-white);
+}
+```
+
+#### Brand Background
+```css
+.bg-brand {
+    background-color: #007AFF;
+}
+```
+
 ---
 
 ## 🎭 Component Styles
@@ -161,43 +168,72 @@ rounded-full  /* 50% */
 #### Primary Button
 ```css
 .btn-primary {
-    background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
+    background-color: #007AFF;
     color: white;
-    font-weight: 600;
-    padding: 1rem 2rem;
-    border-radius: 12px;
-    transition: all 0.3s ease;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #0056CC 0%, #004499 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
+    background-color: #0056b3;
 }
 ```
 
 #### Secondary Button
 ```css
-/* Navigation links */
-text-textSecondary hover:text-primary px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-backgroundSecondary
+.btn-secondary {
+    background-color: hsl(240 4.8% 95.9%);
+    color: hsl(240 5.9% 10%);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(244, 244, 245, 0.8);
+}
+```
+
+#### Outline Button
+```css
+.btn-outline {
+    border: 1px solid hsl(240 5.9% 90%);
+    background-color: hsl(0 0% 100%);
+    color: hsl(240 10% 3.9%);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    background-color: hsl(240 4.8% 95.9%);
+    color: hsl(240 5.9% 10%);
+}
 ```
 
 ### Form Elements
 
 #### Input Fields
 ```css
-.input-field {
-    padding: 1rem 1.25rem;
-    border-radius: 12px;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(4px);
+.form-input {
+    width: 100%;
+    border-radius: 0.375rem;
+    border: 1px solid hsl(240 5.9% 90%);
+    background-color: hsl(0 0% 100%);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    transition: all 0.2s;
 }
 
-.input-field:focus {
+.form-input:focus {
+    outline: none;
     border-color: #007AFF;
-    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.25);
 }
 ```
 
@@ -208,25 +244,25 @@ text-textSecondary hover:text-primary px-3 py-2 rounded-lg text-sm font-medium t
 .feature-card {
     background: white;
     border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    border: 1px solid #E5E5EA;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid hsl(240 5.9% 90%);
+    transition: all 0.3s ease;
 }
 
 .feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 ```
 
 #### Icon Containers
 ```css
 /* Feature icons */
-w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6
+w-12 h-12 bg-brand/10 rounded-2xl flex items-center justify-center mb-4
 
 /* Success icons */
-w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4
+w-5 h-5 text-success mr-2 mt-1
 ```
 
 ---
@@ -235,43 +271,52 @@ w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4
 
 ### Floating Animation
 ```css
-.floating {
-    animation: floating 4s ease-in-out infinite;
+.animate-float {
+    animation: float 4s ease-in-out infinite;
 }
 
-@keyframes floating {
+@keyframes float {
     0%, 100% {
-        transform: translateY(0px) rotate(-2deg);
+        transform: translateY(0.1px);
     }
     50% {
-        transform: translateY(-15px) rotate(-1deg);
+        transform: translateY(-10px);
     }
 }
 ```
 
-### Pulse Glow
+### Pulse Animation
 ```css
-.pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite alternate;
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.97);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+```
+
+### Hover Effects
+```css
+.hover-lift {
+    transition: transform 0.3s ease;
 }
 
-@keyframes pulse-glow {
-    from {
-        box-shadow: 0 0 20px rgba(0, 122, 255, 0.4);
-    }
-    to {
-        box-shadow: 0 0 30px rgba(0, 122, 255, 0.7);
-    }
+.hover-lift:hover {
+    transform: translateY(-3px);
 }
 ```
 
 ### Transitions
 ```css
 /* Standard transition */
-transition: all 0.3s ease
+transition: all 0.2s
 
 /* Smooth transition */
-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+transition: all 0.3s ease
 ```
 
 ---
@@ -281,7 +326,7 @@ transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
 ### Spacing System
 ```css
 /* Section padding */
-py-24 px-4 sm:px-6 lg:px-8
+py-12 md:py-24
 
 /* Container max width */
 max-w-7xl mx-auto
@@ -299,18 +344,19 @@ sm: 640px   /* Small screens */
 md: 768px   /* Medium screens */
 lg: 1024px  /* Large screens */
 xl: 1280px  /* Extra large screens */
+2xl: 1200px /* Custom breakpoint for container */
 ```
 
 ### Grid Layouts
 ```css
 /* Hero section */
-grid grid-cols-1 lg:grid-cols-2 gap-16 items-center
+grid gap-12 md:grid-cols-2 md:gap-16 items-center
 
 /* Feature cards */
-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8
+grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8
 
-/* Footer */
-grid grid-cols-1 md:grid-cols-2 gap-12
+/* Pricing cards */
+grid grid-cols-1 md:grid-cols-3 gap-8
 ```
 
 ---
@@ -320,10 +366,10 @@ grid grid-cols-1 md:grid-cols-2 gap-12
 ### Text Sizes
 ```css
 /* Hero title */
-text-5xl md:text-6xl lg:text-7xl
+text-4xl md:text-5xl lg:text-6xl
 
 /* Section headings */
-text-4xl md:text-5xl
+text-3xl sm:text-4xl md:text-5xl
 
 /* Subsection headings */
 text-xl
@@ -344,6 +390,9 @@ text-3xl
 
 /* Small icons */
 text-2xl
+
+/* Feature icons */
+w-12 h-12
 ```
 
 ---
@@ -354,30 +403,74 @@ text-2xl
 ```javascript
 tailwind.config = {
     theme: {
+        container: {
+            center: true,
+            padding: "1rem",
+            screens: {
+                DEFAULT: "100%",
+                sm: "640px",
+                md: "768px",
+                lg: "1024px",
+                xl: "1200px",
+                "2xl": "1200px"
+            }
+        },
         extend: {
             colors: {
-                primary: "#007AFF",
-                primaryDark: "#0056CC",
-                secondary: "#5856D6",
-                accent: "#34C759",
-                warning: "#FF9500",
-                danger: "#FF3B30",
-                textPrimary: "#1C1C1E",
-                textSecondary: "#3C3C43",
-                textTertiary: "#8E8E93",
-                background: "#FFFFFF",
-                backgroundSecondary: "#F2F2F7",
-                backgroundTertiary: "#E5E5EA",
-                border: "#C7C7CC",
-                borderLight: "#E5E5EA"
+                border: "hsl(240 5.9% 90%)",
+                input: "hsl(240 5.9% 90%)",
+                ring: "hsl(240 5% 64.9%)",
+                background: "hsl(0 0% 100%)",
+                foreground: "hsl(240 10% 3.9%)",
+                primary: {
+                    DEFAULT: "hsl(240 5.9% 10%)",
+                    foreground: "hsl(0 0% 98%)"
+                },
+                secondary: {
+                    DEFAULT: "hsl(240 4.8% 95.9%)",
+                    foreground: "hsl(240 5.9% 10%)"
+                },
+                destructive: {
+                    DEFAULT: "hsl(0 84.2% 60.2%)",
+                    foreground: "hsl(0 0% 98%)"
+                },
+                muted: {
+                    DEFAULT: "hsl(240 4.8% 95.9%)",
+                    foreground: "hsl(240 3.8% 46.1%)"
+                },
+                accent: {
+                    DEFAULT: "hsl(240 4.8% 95.9%)",
+                    foreground: "hsl(240 5.9% 10%)"
+                },
+                popover: {
+                    DEFAULT: "hsl(0 0% 100%)",
+                    foreground: "hsl(240 10% 3.9%)"
+                },
+                card: {
+                    DEFAULT: "hsl(0 0% 100%)",
+                    foreground: "hsl(240 10% 3.9%)"
+                },
+                brand: {
+                    DEFAULT: "#007AFF",
+                    foreground: "hsl(0 0% 98%)"
+                },
+                success: {
+                    DEFAULT: "#34C85A",
+                    foreground: "hsl(0 0% 98%)"
+                }
+            },
+            borderRadius: {
+                lg: "var(--radius)",
+                md: "calc(var(--radius) - 2px)",
+                sm: "calc(var(--radius) - 4px)"
             },
             fontFamily: {
-                sans: ["Inter", "system-ui", "sans-serif"]
+                sans: ["Inter", "sans-serif"]
             },
             boxShadow: {
-                soft: "0 2px 8px rgba(0, 0, 0, 0.08)",
-                medium: "0 4px 16px rgba(0, 0, 0, 0.12)",
-                large: "0 8px 32px rgba(0, 0, 0, 0.16)"
+                "soft-md": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
+                "soft-lg": "0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)",
+                "soft-xl": "0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01)"
             }
         }
     }
@@ -386,22 +479,35 @@ tailwind.config = {
 
 ### CSS Custom Properties
 ```css
-/* Custom scrollbar */
+:root {
+    --accent-color: #007aff;
+    --accent-hover: #0056b3;
+    --success-color: #34c85a;
+    --animation-timing: 0.3s ease;
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --radius: 0.5rem;
+}
+```
+
+### Custom Scrollbar
+```css
 ::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #F2F2F7;
+    background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #C7C7CC;
-    border-radius: 4px;
+    background: #007AFF;
+    border-radius: 40px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #8E8E93;
+    background: #0056b3;
 }
 ```
 
@@ -410,12 +516,14 @@ tailwind.config = {
 ## 📋 Usage Guidelines
 
 ### Do's ✅
-- Use the primary blue (#007AFF) for main actions and branding
+- Use the brand blue (#007AFF) for primary actions and branding
 - Maintain consistent spacing with the defined system
 - Use Inter font family for all text
 - Apply hover effects on interactive elements
-- Use glassmorphism effects for hero sections
+- Use soft shadows for depth and hierarchy
 - Maintain proper contrast ratios for accessibility
+- Use rounded corners consistently (rounded-lg, rounded-xl, rounded-2xl)
+- Implement smooth transitions (0.2s or 0.3s ease)
 
 ### Don'ts ❌
 - Don't use colors outside the defined palette
@@ -423,47 +531,82 @@ tailwind.config = {
 - Don't skip hover states on interactive elements
 - Don't use hard shadows (always use the defined shadow system)
 - Don't use border radius values outside the defined system
+- Don't use gradients unless specified in the guidelines
+- Don't use animations that are too fast or jarring
 
 ### Accessibility
 - Ensure sufficient color contrast (WCAG AA compliant)
 - Use semantic HTML elements
 - Provide focus indicators for keyboard navigation
 - Maintain readable font sizes (minimum 16px for body text)
+- Use proper heading hierarchy (h1, h2, h3, etc.)
 
 ---
 
 ## 🎯 Brand Consistency
 
-### With Bricks.pe
-- Same color palette and typography
-- Consistent button and form styling
-- Similar gradient usage
-- Matching visual hierarchy
-- Compatible design language
+### Design Principles
+- **Simplicity:** Clean, uncluttered interfaces
+- **Clarity:** Easy-to-understand information hierarchy
+- **Trust:** Professional appearance that builds confidence
+- **Accessibility:** Inclusive design for all users
+- **Modern:** Contemporary design patterns and interactions
+
+### Component Patterns
+- **Cards:** Always use rounded corners and soft shadows
+- **Buttons:** Consistent padding, border-radius, and hover states
+- **Forms:** Clear labels, proper spacing, and focus states
+- **Navigation:** Simple, intuitive menu structures
+- **Typography:** Consistent font weights and sizes
 
 ### File Structure
 ```
-Bricks-Leads-Page/
+Bricks-Calc-Page/
 ├── index.html          /* Main landing page */
-├── thank-you.html      /* Success page */
-├── images/             /* Brand assets */
-│   ├── heroimage1.png  /* Hero mockup */
-│   └── image1.PNG      /* Favicon */
-├── CNAME               /* Domain configuration */
-└── BRANDING.md         /* This file */
+├── styles.css          /* Custom styles and animations */
+├── scripts.js          /* Interactive functionality */
+├── images/             /* Brand assets and screenshots */
+│   ├── hero-en-us.png  /* Hero mockup */
+│   ├── hero-es-pe.png  /* Spanish hero mockup */
+│   └── carousel/       /* App screenshots */
+├── favicon.ico         /* Site favicon */
+└── Bricks-Branding.md  /* This file */
 ```
 
 ---
 
 ## 🔄 Version History
 
-### v1.0 (Current)
+### v2.0 (Current)
+- Updated to reflect actual implemented styles
+- Added comprehensive TailwindCSS configuration
+- Included all color variations and semantic naming
+- Added detailed component specifications
+- Enhanced accessibility guidelines
+- Included animation and interaction patterns
+
+### v1.0 (Previous)
 - Initial brand implementation
-- Matches Bricks.pe design system
-- Professional real estate focus
-- Peruvian market optimization
-- Modern, clean aesthetic
+- Basic color and typography guidelines
+- Simple component specifications
 
 ---
 
-*This document should be updated whenever brand changes are made to maintain consistency across all Bricks products.* 
+## 🎨 Implementation Notes
+
+### Key Design Decisions
+1. **Apple Blue (#007AFF):** Chosen for its association with trust, technology, and accessibility
+2. **Inter Font:** Selected for excellent readability and modern appearance
+3. **Soft Shadows:** Used to create subtle depth without being overwhelming
+4. **Rounded Corners:** Applied consistently to create a friendly, approachable feel
+5. **HSL Color System:** Used in Tailwind config for better color manipulation
+
+### Performance Considerations
+- Use CSS custom properties for consistent theming
+- Implement efficient animations with transform and opacity
+- Optimize images and assets for web delivery
+- Use semantic HTML for better SEO and accessibility
+
+---
+
+*This document should be updated whenever brand changes are made to maintain consistency across all Bricks products. Last updated: January 2025* 

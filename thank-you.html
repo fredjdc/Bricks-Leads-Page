@@ -29,30 +29,76 @@
         <script>
             tailwind.config = {
                 theme: {
+                    container: {
+                        center: true,
+                        padding: "1rem",
+                        screens: {
+                            DEFAULT: "100%",
+                            sm: "640px",
+                            md: "768px",
+                            lg: "1024px",
+                            xl: "1200px",
+                            "2xl": "1200px"
+                        }
+                    },
                     extend: {
                         colors: {
-                            primary: "#007AFF", // Bricks brand blue
-                            primaryDark: "#0056CC", // Darker blue for hover states
-                            secondary: "#5856D6", // Purple accent
-                            accent: "#34C759", // Success green
-                            warning: "#FF9500", // Warning orange
-                            danger: "#FF3B30", // Error red
-                            textPrimary: "#1C1C1E", // Primary text
-                            textSecondary: "#3C3C43", // Secondary text
-                            textTertiary: "#8E8E93", // Tertiary text
-                            background: "#FFFFFF", // Main background
-                            backgroundSecondary: "#F2F2F7", // Secondary background
-                            backgroundTertiary: "#E5E5EA", // Tertiary background
-                            border: "#C7C7CC", // Border color
-                            borderLight: "#E5E5EA" // Light border
+                            border: "hsl(240 5.9% 90%)",
+                            input: "hsl(240 5.9% 90%)",
+                            ring: "hsl(240 5% 64.9%)",
+                            background: "hsl(0 0% 100%)",
+                            foreground: "hsl(240 10% 3.9%)",
+                            primary: {
+                                DEFAULT: "hsl(240 5.9% 10%)",
+                                foreground: "hsl(0 0% 98%)"
+                            },
+                            secondary: {
+                                DEFAULT: "hsl(240 4.8% 95.9%)",
+                                foreground: "hsl(240 5.9% 10%)"
+                            },
+                            destructive: {
+                                DEFAULT: "hsl(0 84.2% 60.2%)",
+                                foreground: "hsl(0 0% 98%)"
+                            },
+                            muted: {
+                                DEFAULT: "hsl(240 4.8% 95.9%)",
+                                foreground: "hsl(240 3.8% 46.1%)"
+                            },
+                            accent: {
+                                DEFAULT: "hsl(240 4.8% 95.9%)",
+                                foreground: "hsl(240 5.9% 10%)"
+                            },
+                            popover: {
+                                DEFAULT: "hsl(0 0% 100%)",
+                                foreground: "hsl(240 10% 3.9%)"
+                            },
+                            card: {
+                                DEFAULT: "hsl(0 0% 100%)",
+                                foreground: "hsl(240 10% 3.9%)"
+                            },
+                            brand: {
+                                DEFAULT: "#007AFF",
+                                foreground: "hsl(0 0% 98%)"
+                            },
+                            success: {
+                                DEFAULT: "#34C85A",
+                                foreground: "hsl(0 0% 98%)"
+                            }
+                        },
+                        borderRadius: {
+                            lg: "var(--radius)",
+                            md: "calc(var(--radius) - 2px)",
+                            sm: "calc(var(--radius) - 4px)"
                         },
                         fontFamily: {
-                            sans: ["Inter", "system-ui", "sans-serif"]
+                            sans: ["Inter", "sans-serif"]
                         },
                         boxShadow: {
-                            'soft': '0 2px 8px rgba(0, 0, 0, 0.08)',
-                            'medium': '0 4px 16px rgba(0, 0, 0, 0.12)',
-                            'large': '0 8px 32px rgba(0, 0, 0, 0.16)'
+                            "soft": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
+                            "soft-md": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
+                            "soft-lg": "0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)",
+                            "soft-xl": "0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01)",
+                            "hover": "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
                         }
                     }
                 }
@@ -65,9 +111,20 @@
             rel="stylesheet" />
 
         <style>
+            /* CSS Custom Properties - Brand Guidelines */
+            :root {
+                --accent-color: #007aff;
+                --accent-hover: #0056b3;
+                --success-color: #34c85a;
+                --animation-timing: 0.3s ease;
+                --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+                --shadow-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+                --radius: 0.5rem;
+            }
+
             /* Enhanced Bricks brand styling */
             .hero-gradient {
-                background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+                background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
             }
 
             .card-gradient {
@@ -77,12 +134,12 @@
             }
 
             .btn-primary {
-                background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
+                background: linear-gradient(135deg, #007aff 0%, #0056cc 100%);
                 transition: all 0.3s ease;
             }
 
             .btn-primary:hover {
-                background: linear-gradient(135deg, #0056CC 0%, #004499 100%);
+                background: linear-gradient(135deg, #0056cc 0%, #004499 100%);
                 transform: translateY(-1px);
                 box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
             }
@@ -92,22 +149,23 @@
                 scroll-behavior: smooth;
             }
 
-            /* Custom scrollbar */
+            /* Custom scrollbar - Brand Guidelines */
             ::-webkit-scrollbar {
                 width: 8px;
+                height: 8px;
             }
 
             ::-webkit-scrollbar-track {
-                background: #F2F2F7;
+                background: #f1f1f1;
             }
 
             ::-webkit-scrollbar-thumb {
-                background: #C7C7CC;
-                border-radius: 4px;
+                background: #007AFF;
+                border-radius: 40px;
             }
 
             ::-webkit-scrollbar-thumb:hover {
-                background: #8E8E93;
+                background: #0056b3;
             }
         </style>
         <!-- Meta Pixel Code -->
@@ -140,21 +198,21 @@
         /></noscript>
         <!-- End Meta Pixel Code -->
     </head>
-    <body class="bg-background font-sans text-textPrimary antialiased">
+    <body class="bg-background font-sans text-foreground antialiased">
         <!-- Navigation -->
-        <nav class="bg-background/95 backdrop-blur-md shadow-soft sticky top-0 z-50 border-b border-borderLight">
+        <nav class="bg-background/95 backdrop-blur-md shadow-soft sticky top-0 z-50 border-b border-border">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <h1 class="text-2xl font-bold text-primary">Bricks Leads</h1>
+                            <h1 class="text-2xl font-bold text-brand">Bricks Leads</h1>
                         </div>
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-6">
                             <a
                                 href="index.html"
-                                class="text-textSecondary hover:text-primary px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-backgroundSecondary"
+                                class="text-muted-foreground hover:text-brand px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-secondary"
                                 >Volver al inicio</a
                             >
                         </div>
@@ -172,16 +230,16 @@
             
             <div class="max-w-4xl mx-auto text-center relative z-10">
                 <div class="card-gradient rounded-3xl p-12 border border-white/20">
-                    <div class="w-24 h-24 bg-accent rounded-full flex items-center justify-center mx-auto mb-8 shadow-medium">
+                    <div class="w-24 h-24 bg-success rounded-full flex items-center justify-center mx-auto mb-8 shadow-soft-lg">
                         <span class="text-4xl text-white">✓</span>
                     </div>
                     <h1 class="text-4xl md:text-5xl font-bold mb-8 leading-tight tracking-tight">¡Gracias por registrarte!</h1>
-                    <p class="text-xl leading-relaxed mb-10 text-white/90 font-light">
+                    <p class="text-xl leading-relaxed mb-10 text-white/90">
                         Te hemos agregado a nuestra lista de espera. Te avisaremos cuando Bricks Leads esté disponible.
                     </p>
                     <a
                         href="index.html"
-                        class="inline-block btn-primary text-white font-semibold px-8 py-4 rounded-xl hover:bg-primaryDark transition-all duration-200"
+                        class="inline-block btn-primary text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200"
                         >Volver al inicio</a
                     >
                 </div>
@@ -189,10 +247,10 @@
         </section>
 
         <!-- Footer -->
-        <footer class="bg-background border-t border-borderLight py-12 px-4 sm:px-6 lg:px-8">
+        <footer class="bg-background border-t border-border py-12 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto text-center">
-                <p class="text-textSecondary text-lg">Hecho con ❤️ para Perú.</p>
-                <p class="text-sm text-textTertiary mt-3">© 2025 Bricks. Todos los derechos reservados.</p>
+                <p class="text-muted-foreground text-lg">Hecho con ❤️ para Perú.</p>
+                <p class="text-sm text-muted-foreground mt-3">© 2025 Bricks. Todos los derechos reservados.</p>
             </div>
         </footer>
     </body>
