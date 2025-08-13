@@ -5,22 +5,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <!-- SEO Meta Tags -->
-        <title>Bricks Leads: App para agentes inmobiliarios en Perú | Próximamente</title>
+        <title>Bricks Leads: CRM inmobiliario para agentes en Lima, Perú | Próximamente</title>
         <meta
             name="description"
-            content="Captá propiedades, gestioná clientes y organizá visitas con Bricks Leads. Funciona sin conexión. Disponible pronto en iPhone y Mac." />
+            content="Capta propiedades, gestiona clientes y organiza visitas con Bricks Leads en Lima. Funciona sin conexión. Disponible pronto en iPhone y Mac." />
         <meta
             name="keywords"
             content="app inmobiliaria Perú, agentes inmobiliarios, gestión de propiedades, CRM agentes, Bricks Leads" />
+        <link rel="canonical" href="https://leads.bricks.pe/" />
+        <meta http-equiv="Content-Language" content="es-PE" />
 
         <!-- Open Graph Tags -->
-        <meta property="og:title" content="Bricks Leads: Próximamente en iPhone y Mac" />
+        <meta property="og:site_name" content="Bricks Leads" />
+        <meta property="og:locale" content="es_PE" />
+        <meta property="og:title" content="Bricks Leads: CRM inmobiliario para agentes en Lima, Perú" />
         <meta
             property="og:description"
-            content="La nueva app para agentes inmobiliarios en Perú. Ahorra tiempo y gestioná todo desde un solo lugar." />
-        <meta property="og:image" content="images/image1.PNG" />
+            content="Capta propiedades y gestiona clientes en Lima. Funciona sin conexión en iPhone y Mac." />
+        <meta property="og:image" content="https://leads.bricks.pe/images/heroimage1.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://bricksleads.com" />
+        <meta property="og:url" content="https://leads.bricks.pe/" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Bricks Leads: CRM inmobiliario para agentes en Lima, Perú" />
+        <meta
+            name="twitter:description"
+            content="Capta propiedades y gestiona clientes en Lima. Funciona sin conexión en iPhone y Mac." />
+        <meta name="twitter:image" content="https://leads.bricks.pe/images/heroimage1.png" />
 
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="images/image1.PNG" />
@@ -112,9 +126,12 @@
         </script>
 
         <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
             rel="stylesheet" />
+        <meta name="theme-color" content="#007AFF" />
 
         <style>
             /* CSS Custom Properties - Brand Guidelines */
@@ -250,6 +267,52 @@
                 src="https://www.facebook.com/tr?id=24623680683930364&ev=PageView&noscript=1"
         /></noscript>
         <!-- End Meta Pixel Code -->
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Bricks Leads",
+                "url": "https://leads.bricks.pe/",
+                "logo": "https://leads.bricks.pe/images/heroimage1.png",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Lima",
+                    "addressRegion": "Lima",
+                    "addressCountry": "PE"
+                },
+                "areaServed": { "@type": "AdministrativeArea", "name": "Lima, Perú" },
+                "contactPoint": [
+                    {
+                        "@type": "ContactPoint",
+                        "email": "hello@bricks.pe",
+                        "contactType": "customer support",
+                        "areaServed": "PE",
+                        "availableLanguage": ["es", "en"]
+                    }
+                ],
+                "sameAs": []
+            }
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": "Bricks Leads",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "iOS, macOS",
+                "url": "https://leads.bricks.pe/",
+                "description": "App inmobiliaria para agentes en Lima, Perú. Capta propiedades y gestiona clientes. Funciona sin conexión.",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/PreOrder"
+                },
+                "publisher": { "@type": "Organization", "name": "Bricks" }
+            }
+        </script>
     </head>
     <body class="bg-background font-sans text-foreground antialiased">
         <!-- Navigation -->
@@ -297,7 +360,8 @@
                             </h1>
                             <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
                                 Capta, gestiona y organiza fácilmente tu negocio inmobiliario desde donde estés. Gratis
-                                para iPhone, iPad y Mac.
+                                para iPhone, iPad y Mac. Optimizada para agentes de Lima (Miraflores, San Isidro, Surco,
+                                La Molina).
                             </p>
                         </div>
 
@@ -359,7 +423,9 @@
                                     <img
                                         src="images/heroimage2.png"
                                         alt="Bricks Leads App - Desktop Dashboard"
-                                        class="w-auto max-w-full" />
+                                        class="w-auto max-w-full"
+                                        width="1200"
+                                        height="800" />
                                 </div>
                             </div>
                         </div>
@@ -419,8 +485,8 @@
                         </div>
                         <h3 class="text-xl font-semibold text-card-foreground mb-4">Impulsa tu negocio ¡Gratis!</h3>
                         <p class="text-muted-foreground leading-relaxed">
-                            Crecemos contigo, asi que disfruta todas las funciones para organizar hasta 500 clientes y
-                            propiedades.
+                            Disfruta de todas las funciones para organizar hasta 500 clientes y propiedades, totalmente
+                            gratis.
                         </p>
                     </div>
 
@@ -440,7 +506,7 @@
                         </div>
                         <h3 class="text-xl font-semibold text-card-foreground mb-4">Funciona sin conexión</h3>
                         <p class="text-muted-foreground leading-relaxed">
-                            Modo offline completo. Trabaja desde cualquier lugar, incluso sin internet, y sincronizá
+                            Modo offline completo. Trabaja desde cualquier lugar, incluso sin internet, y sincroniza
                             cuando vuelvas a conectarte.
                         </p>
                     </div>
@@ -689,6 +755,15 @@
                                 hello@bricks.pe
                             </a>
                         </p>
+                        <div class="mt-4 flex items-center gap-4 text-sm">
+                            <a href="/privacy.html" class="text-muted-foreground hover:text-brand"
+                                >Política de Privacidad</a
+                            >
+                            <span class="text-slate-300">•</span>
+                            <a href="/terms.html" class="text-muted-foreground hover:text-brand"
+                                >Términos de Servicio</a
+                            >
+                        </div>
                     </div>
                 </div>
 

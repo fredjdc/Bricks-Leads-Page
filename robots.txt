@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+Sitemap: https://leads.bricks.pe/sitemap.xml
+
+
