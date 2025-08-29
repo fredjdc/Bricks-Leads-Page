@@ -30,7 +30,7 @@
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 0 0px;
+            padding: 0 20px;
         }
         
         /* Header Styles */
@@ -396,6 +396,10 @@
         
         /* Responsive Design */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
             .hero-content {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -445,6 +449,20 @@
                 gap: 40px;
             }
         }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .hero-text h1 {
+                font-size: 28px;
+            }
+            
+            .hero-text p {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -467,7 +485,6 @@
                     <div class="email-section">
                         <form
                             id="hero-form"
-                            class="email-section"
                             action="https://formsubmit.co/707e6e012fa931048784ff0f766aa0df"
                             method="POST"
                             x-data="{ email: '', submitted: false, success: false }"
@@ -491,10 +508,10 @@
                         </form>
                         
                         <!-- Success Message -->
-                        <div x-data="{}" x-show="success" class="text-center py-8">
-                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div x-data="{}" x-show="success" style="text-align: center; padding: 32px 0;">
+                            <div style="width: 64px; height: 64px; background-color: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
                                 <svg
-                                    class="w-8 h-8 text-white"
+                                    style="width: 32px; height: 32px; color: white;"
                                     fill="none"
                                     stroke="currentColor"
                                     stroke-width="2.5"
@@ -503,8 +520,8 @@
                                     <polyline points="20,6 9,17 4,12"></polyline>
                                 </svg>
                             </div>
-                            <h4 class="text-xl font-semibold mb-3 text-foreground">¡Gracias por registrarte!</h4>
-                            <p class="text-muted-foreground">Te avisaremos cuando Bricks Leads esté disponible.</p>
+                            <h4 style="font-size: 20px; font-weight: 600; margin-bottom: 12px; color: #333333;">¡Gracias por registrarte!</h4>
+                            <p style="color: #666666;">Te avisaremos cuando Bricks Leads esté disponible.</p>
                         </div>
                     </div>
                     
@@ -522,7 +539,7 @@
                             </div>
                     
                     <div class="availability">
-                        <span>Estará disponible para iPhone, iPad y Mac.</span>
+                        <span>Desarrollada para iPhone, iPad y Mac.</span>
                     </div>
                 </div>
                 
