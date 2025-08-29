@@ -458,12 +458,24 @@
                         <button class="hero-cta">Quiero Enterarme</button>
                     </div>
                     
+                    <!-- Beta Tester Checkbox -->
+                    <div class="flex items-center space-x-3 mb-4">
+                        <input 
+                            type="checkbox" 
+                            id="betaTester" 
+                            class="w-5 h-5 text-yellow-500 bg-white border-gray-300 rounded focus:ring-yellow-500 focus:ring-2"
+                        >
+                        <label for="betaTester" class="text-gray-600 text-sm cursor-pointer">
+                            Quiero ser beta tester y probar la app antes del lanzamiento
+                        </label>
+                    </div>
+                    
                     <div class="availability">
                         <span>Estará disponible para iPhone, iPad y Mac.</span>
                     </div>
                 </div>
                 
-                <div class="app-screenshots">
+                <div class="app-screenshots app-view">
                     <img src="images-3/hero-image.png" alt="Bricks Leads App Screenshots" class="float">
                 </div>
             </div>
@@ -507,8 +519,15 @@
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
                     const email = emailInput ? emailInput.value : '';
+                    const betaTesterCheckbox = document.getElementById('betaTester');
+                    const isBetaTester = betaTesterCheckbox ? betaTesterCheckbox.checked : false;
+                    
                     if (email) {
-                        alert('¡Gracias por tu interés! Te mantendremos informado sobre el lanzamiento de Bricks.');
+                        let message = '¡Gracias por tu interés! Te mantendremos informado sobre el lanzamiento de Bricks.';
+                        if (isBetaTester) {
+                            message = '¡Gracias por tu interés! Te hemos registrado como beta tester. Te contactaremos pronto para que pruebes la app antes del lanzamiento.';
+                        }
+                        alert(message);
                     } else {
                         alert('Por favor, ingresa tu email para recibir actualizaciones.');
                     }

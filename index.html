@@ -404,6 +404,19 @@
                                         Quiero enterarme
                                     </button>
                                 </div>
+                                
+                                <!-- Beta Tester Checkbox -->
+                                <div class="flex items-center space-x-3">
+                                    <input 
+                                        type="checkbox" 
+                                        id="heroBetaTester" 
+                                        name="betaTester"
+                                        class="w-5 h-5 text-brand bg-white/90 border-white/30 rounded focus:ring-brand focus:ring-2"
+                                    >
+                                    <label for="heroBetaTester" class="text-white/90 text-sm cursor-pointer">
+                                        Quiero ser beta tester y probar la app antes del lanzamiento
+                                    </label>
+                                </div>
                                 <p class="text-sm text-white/80">📧 Te avisaremos cuando esté disponible.</p>
                             </form>
                             <div x-data="{}" x-show="success" class="text-center py-8">
@@ -675,6 +688,20 @@
                             placeholder="Tu correo electrónico"
                             class="input-field w-full px-5 py-4 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none bg-secondary border border-border"
                             required />
+                        
+                        <!-- Beta Tester Checkbox -->
+                        <div class="flex items-center space-x-3">
+                            <input 
+                                type="checkbox" 
+                                id="subscriptionBetaTester" 
+                                name="betaTester"
+                                class="w-5 h-5 text-brand bg-white border-gray-300 rounded focus:ring-brand focus:ring-2"
+                            >
+                            <label for="subscriptionBetaTester" class="text-muted-foreground text-sm cursor-pointer">
+                                Quiero ser beta tester y probar la app antes del lanzamiento
+                            </label>
+                        </div>
+                        
                         <button
                             type="submit"
                             class="w-full btn-primary text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200">
