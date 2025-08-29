@@ -1,883 +1,302 @@
 <!doctype html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <!-- SEO Meta Tags -->
-        <title>Bricks Leads: CRM inmobiliario para agentes en Lima, Perú | Próximamente</title>
-        <meta
-            name="description"
-            content="Capta propiedades, gestiona clientes y organiza visitas con Bricks Leads en Lima. Funciona sin conexión. Disponible pronto en iPhone y Mac." />
-        <meta
-            name="keywords"
-            content="app inmobiliaria Perú, agentes inmobiliarios, gestión de propiedades, CRM agentes, Bricks Leads" />
-        <link rel="canonical" href="https://leads.bricks.pe/" />
-        <meta http-equiv="Content-Language" content="es-PE" />
+    <!-- SEO Meta Tags -->
+    <title>Bricks: App de gestión inmobiliaria para agentes en Perú | Próximamente</title>
+    <meta
+        name="description"
+        content="Captura, organiza y gestiona tu cartera inmobiliaria con la aplicación más innovadora diseñada especialmente para agentes en Perú." />
+    <meta
+        name="keywords"
+        content="app inmobiliaria Perú, gestión inmobiliaria, agentes inmobiliarios, Bricks, iPhone, iPad, Mac" />
+    <link rel="canonical" href="https://bricks.pe/" />
+    <meta http-equiv="Content-Language" content="es-PE" />
 
-        <!-- Open Graph Tags -->
-        <meta property="og:site_name" content="Bricks Leads" />
-        <meta property="og:locale" content="es_PE" />
-        <meta property="og:title" content="Bricks Leads: CRM inmobiliario para agentes en Lima, Perú" />
-        <meta
-            property="og:description"
-            content="Capta propiedades y gestiona clientes en Lima. Funciona sin conexión en iPhone y Mac." />
-        <meta property="og:image" content="https://leads.bricks.pe/images/heroimage1.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://leads.bricks.pe/" />
+    <!-- Open Graph Tags -->
+    <meta property="og:site_name" content="Bricks" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:title" content="Bricks: App de gestión inmobiliaria para agentes en Perú" />
+    <meta
+        property="og:description"
+        content="Captura, organiza y gestiona tu cartera inmobiliaria con la aplicación más innovadora." />
+    <meta property="og:image" content="https://bricks.pe/images-2/hero-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bricks.pe/" />
 
-        <!-- Twitter -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Bricks Leads: CRM inmobiliario para agentes en Lima, Perú" />
-        <meta
-            name="twitter:description"
-            content="Capta propiedades y gestiona clientes en Lima. Funciona sin conexión en iPhone y Mac." />
-        <meta name="twitter:image" content="https://leads.bricks.pe/images/heroimage1.png" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bricks: App de gestión inmobiliaria para agentes en Perú" />
+    <meta
+        name="twitter:description"
+        content="Captura, organiza y gestiona tu cartera inmobiliaria con la aplicación más innovadora." />
+    <meta name="twitter:image" content="https://bricks.pe/images-2/hero-image.png" />
 
-        <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="images/image1.PNG" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/Leads-Logo.svg" />
 
-        <!-- TailwindCSS CDN -->
-        <script src="https://cdn.tailwindcss.com"></script>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        <!-- Alpine.js for interactions -->
-        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Alpine.js for interactions -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-        <!-- Custom TailwindCSS Configuration -->
-        <script>
-            tailwind.config = {
-                theme: {
-                    container: {
-                        center: true,
-                        padding: "1rem",
-                        screens: {
-                            DEFAULT: "100%",
-                            sm: "640px",
-                            md: "768px",
-                            lg: "1024px",
-                            xl: "1200px",
-                            "2xl": "1200px"
-                        }
+    <!-- Google Fonts - Exo 2 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Custom TailwindCSS Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'exo': ['Exo 2', 'sans-serif'],
                     },
-                    extend: {
-                        colors: {
-                            border: "hsl(240 5.9% 90%)",
-                            input: "hsl(240 5.9% 90%)",
-                            ring: "hsl(240 5% 64.9%)",
-                            background: "hsl(0 0% 100%)",
-                            foreground: "hsl(240 10% 3.9%)",
-                            primary: {
-                                DEFAULT: "hsl(240 5.9% 10%)",
-                                foreground: "hsl(0 0% 98%)"
-                            },
-                            secondary: {
-                                DEFAULT: "hsl(240 4.8% 95.9%)",
-                                foreground: "hsl(240 5.9% 10%)"
-                            },
-                            destructive: {
-                                DEFAULT: "hsl(0 84.2% 60.2%)",
-                                foreground: "hsl(0 0% 98%)"
-                            },
-                            muted: {
-                                DEFAULT: "hsl(240 4.8% 95.9%)",
-                                foreground: "hsl(240 3.8% 46.1%)"
-                            },
-                            accent: {
-                                DEFAULT: "hsl(240 4.8% 95.9%)",
-                                foreground: "hsl(240 5.9% 10%)"
-                            },
-                            popover: {
-                                DEFAULT: "hsl(0 0% 100%)",
-                                foreground: "hsl(240 10% 3.9%)"
-                            },
-                            card: {
-                                DEFAULT: "hsl(0 0% 100%)",
-                                foreground: "hsl(240 10% 3.9%)"
-                            },
-                            brand: {
-                                DEFAULT: "#007AFF",
-                                foreground: "hsl(0 0% 98%)"
-                            },
-                            success: {
-                                DEFAULT: "#34C85A",
-                                foreground: "hsl(0 0% 98%)"
-                            }
-                        },
-                        borderRadius: {
-                            lg: "var(--radius)",
-                            md: "calc(var(--radius) - 2px)",
-                            sm: "calc(var(--radius) - 4px)"
-                        },
-                        fontFamily: {
-                            sans: ["Inter", "sans-serif"]
-                        },
-                        boxShadow: {
-                            soft: "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
-                            "soft-md": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
-                            "soft-lg": "0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)",
-                            "soft-xl": "0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01)",
-                            hover: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-                        }
+                    colors: {
+                        'bricks-yellow': '#FFCC00',
+                        'bricks-dark': '#1a1a1a',
+                        'bricks-darker': '#0f0f0f',
+                        'bricks-light': '#2a2a2a',
                     }
                 }
-            };
-        </script>
-
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-            rel="stylesheet" />
-        <meta name="theme-color" content="#007AFF" />
-
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-F052KKS9DR"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
             }
-            gtag("js", new Date());
+        }
+    </script>
 
-            gtag("config", "G-F052KKS9DR");
-        </script>
+    <style>
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: #1A1A1A;
+        }
+        
+        .gradient-bg {
+            background: url('images-2/BG.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 30px rgba(255, 204, 0, 0.3);
+        }
+        
+        .phone-mockup {
+            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .app-screen {
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        .yellow-accent {
+            background: #FFCC00;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 204, 0, 0.2);
+        }
+    </style>
+</head>
 
-        <style>
-            /* CSS Custom Properties - Brand Guidelines */
-            :root {
-                --accent-color: #007aff;
-                --accent-hover: #0056b3;
-                --success-color: #34c85a;
-                --animation-timing: 0.3s ease;
-                --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-                --shadow-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-                --radius: 0.5rem;
-            }
+<body class="black text-white font-exo">
+    
 
-            /* Enhanced Bricks brand styling */
-            .hero-gradient {
-                background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
-            }
-
-            .card-gradient {
-                background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-                backdrop-filter: blur(20px);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-            }
-
-            .floating {
-                animation: floating 4s ease-in-out infinite;
-            }
-
-            @keyframes floating {
-                0%,
-                100% {
-                    transform: translateY(0px) rotate(-2deg);
-                }
-                50% {
-                    transform: translateY(-15px) rotate(-1deg);
-                }
-            }
-
-            .pulse-glow {
-                animation: pulse-glow 2s ease-in-out infinite alternate;
-            }
-
-            @keyframes pulse-glow {
-                from {
-                    box-shadow: 0 0 20px rgba(0, 122, 255, 0.4);
-                }
-                to {
-                    box-shadow: 0 0 30px rgba(0, 122, 255, 0.7);
-                }
-            }
-
-            .feature-card {
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .feature-card:hover {
-                transform: translateY(-4px);
-                box-shadow: var(--shadow-hover);
-            }
-
-            .btn-primary {
-                background: #34c85a;
-                transition: all 0.3s ease;
-            }
-
-            .btn-primary:hover {
-                background: linear-gradient(135deg, #0056cc 0%, #004499 100%);
-                transform: translateY(-1px);
-                box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
-            }
-
-            .input-field {
-                transition: all 0.3s ease;
-                border: 2px solid transparent;
-            }
-
-            .input-field:focus {
-                border-color: #007aff;
-                box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
-            }
-
-            /* Smooth scrolling */
-            html {
-                scroll-behavior: smooth;
-            }
-
-            /* Custom scrollbar - Brand Guidelines */
-            ::-webkit-scrollbar {
-                width: 8px;
-                height: 8px;
-            }
-
-            ::-webkit-scrollbar-track {
-                background: #f1f1f1;
-            }
-
-            ::-webkit-scrollbar-thumb {
-                background: #007aff;
-                border-radius: 40px;
-            }
-
-            ::-webkit-scrollbar-thumb:hover {
-                background: #0056b3;
-            }
-        </style>
-
-        <!-- Meta Pixel Code -->
-        <script>
-            !(function (f, b, e, v, n, t, s) {
-                if (f.fbq) return;
-                n = f.fbq = function () {
-                    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-                };
-                if (!f._fbq) f._fbq = n;
-                n.push = n;
-                n.loaded = !0;
-                n.version = "2.0";
-                n.queue = [];
-                t = b.createElement(e);
-                t.async = !0;
-                t.src = v;
-                s = b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t, s);
-            })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-            fbq("init", "24623680683930364");
-            fbq("track", "PageView");
-        </script>
-        <noscript
-            ><img
-                height="1"
-                width="1"
-                style="display: none"
-                src="https://www.facebook.com/tr?id=24623680683930364&ev=PageView&noscript=1"
-        /></noscript>
-        <!-- End Meta Pixel Code -->
-
-        <!-- Structured Data -->
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "name": "Bricks Leads",
-                "url": "https://leads.bricks.pe/",
-                "logo": "https://leads.bricks.pe/images/heroimage1.png",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Lima",
-                    "addressRegion": "Lima",
-                    "addressCountry": "PE"
-                },
-                "areaServed": { "@type": "AdministrativeArea", "name": "Lima, Perú" },
-                "contactPoint": [
-                    {
-                        "@type": "ContactPoint",
-                        "email": "hello@bricks.pe",
-                        "contactType": "customer support",
-                        "areaServed": "PE",
-                        "availableLanguage": ["es", "en"]
-                    }
-                ],
-                "sameAs": []
-            }
-        </script>
-        <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "SoftwareApplication",
-                "name": "Bricks Leads",
-                "applicationCategory": "BusinessApplication",
-                "operatingSystem": "iOS, macOS",
-                "url": "https://leads.bricks.pe/",
-                "description": "App inmobiliaria para agentes en Lima, Perú. Capta propiedades y gestiona clientes. Funciona sin conexión.",
-                "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD",
-                    "availability": "https://schema.org/PreOrder"
-                },
-                "publisher": { "@type": "Organization", "name": "Bricks" }
-            }
-        </script>
-    </head>
-    <body class="bg-background font-sans text-foreground antialiased">
-        <!-- Navigation -->
-        <nav class="bg-background/95 backdrop-blur-md shadow-soft sticky top-0 z-50 border-b border-border">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-16">
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0">
-                            <h1 class="text-2xl font-bold text-brand">Leads</h1>
-                        </div>
+    <!-- Hero Section -->
+    <section id="inicio" class="pt-16 pb-0" style="background-color: #1A1A1A;">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Side - Content -->
+                <div class="space-y-12">
+                    <!-- Logo moved into hero -->
+                    <div class="flex items-center space-x-2 mb-10">
+                        <img src="images/Leads-Logo.svg" alt="Bricks Logo" class="w-8 h-8">
+                        <span class="text-xl font-bold">Leads</span>
                     </div>
-                    <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-6">
-                            <a
-                                href="#beneficios"
-                                class="text-muted-foreground hover:text-brand px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-secondary"
-                                >Beneficios</a
-                            >
-                            <a
-                                href="#formulario"
-                                class="btn-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200"
-                                >Quiero enterarme</a
-                            >
-                        </div>
+                    <div class="space-y-2">
+                        <h1 class="text-4xl md:text-4xl font-bold leading-tight">
+                            <span class="text-bricks-yellow">¡Muy Pronto!</span> <br>La herramienta que transformará tu negocio inmobiliario en Perú
+                        </h1>
+                        <p class="text-l text-gray-300 leading-relaxed">
+                            Regístrate con tu email y sé el primero en conocer la nueva forma de gestionar tus clientes.
+                        </p>
                     </div>
-                </div>
-            </div>
-        </nav>
 
-        <!-- Hero Section -->
-        <section class="hero-gradient text-white py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-            <!-- Background decoration -->
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
-            <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
-
-            <div class="max-w-7xl mx-auto relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <!-- Text Content -->
-                    <div class="space-y-10">
-                        <div class="space-y-6">
-                            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
-                                <span class="text-4xl text-white/60">¡Muy Pronto!</span><br />
-                                Una nueva forma de trabajar en bienes raíces 🇵🇪
-                            </h1>
-                            <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
-                                Capta, gestiona y organiza fácilmente tu negocio inmobiliario desde donde estés. Gratis
-                                para iPhone, iPad y Mac. Optimizada para agentes de Perú.
-                            </p>
-                        </div>
-
-                        <!-- Email Capture Form -->
-                        <div class="card-gradient rounded-3xl p-8 border border-white/20">
-                            <h3 class="text-xl font-semibold mb-6 text-white">¡Sé el primero en enterarte!</h3>
-                            <form
-                                id="hero-form"
-                                class="space-y-5"
-                                action="https://formsubmit.co/707e6e012fa931048784ff0f766aa0df"
-                                method="POST"
-                                x-data="{ email: '', submitted: false, success: false }"
-                                x-show="!success"
-                                @submit="setTimeout(() => { success = true }, 200)">
-                                <input type="hidden" name="_subject" value="Nuevo registro en Bricks Leads" />
-                                <input type="hidden" name="_captcha" value="false" />
-                                <input type="hidden" name="_next" value="https://leads.bricks.pe/thank-you" />
-                                <div class="flex flex-col sm:flex-row gap-4">
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        x-model="email"
-                                        placeholder="Tu correo electrónico"
-                                        class="input-field flex-1 px-5 py-4 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none bg-white/90 backdrop-blur-sm"
-                                        required />
-                                    <button
-                                        type="submit"
-                                        class="btn-primary text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 pulse-glow whitespace-nowrap">
-                                        Quiero enterarme
-                                    </button>
-                                </div>
-                                
-                                <!-- Beta Tester Checkbox -->
-                                <div class="flex items-center space-x-3">
-                                    <input 
-                                        type="checkbox" 
-                                        id="heroBetaTester" 
-                                        name="betaTester"
-                                        class="w-5 h-5 text-brand bg-white/90 border-white/30 rounded focus:ring-brand focus:ring-2"
-                                    >
-                                    <label for="heroBetaTester" class="text-white/90 text-sm cursor-pointer">
-                                        Quiero ser beta tester y probar la app antes del lanzamiento
-                                    </label>
-                                </div>
-                                <p class="text-sm text-white/80">📧 Te avisaremos cuando esté disponible.</p>
-                            </form>
-                            <div x-data="{}" x-show="success" class="text-center py-8">
-                                <div
-                                    class="w-16 h-16 bg-success rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <svg
-                                        class="w-8 h-8 text-white"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2.5"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <polyline points="20,6 9,17 4,12"></polyline>
-                                    </svg>
-                                </div>
-                                <h4 class="text-xl font-semibold mb-3 text-white">¡Gracias por registrarte!</h4>
-                                <p class="text-white/80">Te avisaremos cuando Bricks Leads esté disponible.</p>
+                    <!-- Email Input Section -->
+                    <div class="space-y-4">
+                        <form
+                            id="hero-form"
+                            class="space-y-4"
+                            action="https://formsubmit.co/707e6e012fa931048784ff0f766aa0df"
+                            method="POST"
+                            x-data="{ email: '', submitted: false, success: false }"
+                            x-show="!success"
+                            @submit="setTimeout(() => { success = true }, 200)">
+                            <input type="hidden" name="_subject" value="Nuevo registro en Bricks Leads" />
+                            <input type="hidden" name="_captcha" value="false" />
+                            <input type="hidden" name="_next" value="https://leads.bricks.pe/thank-you" />
+                            
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <input 
+                                    type="email" 
+                                    name="email"
+                                    x-model="email"
+                                    placeholder="john@mail.com" 
+                                    class="flex-1 px-6 py-4 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-bricks-yellow transition-colors"
+                                    required
+                                >
+                                <button 
+                                    type="submit"
+                                    class="yellow-accent text-black font-semibold px-8 py-4 rounded-lg hover:scale-105 transition-transform whitespace-nowrap">
+                                    Quiero Enterarme
+                                </button>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- App Mockup -->
-                    <div class="flex justify-center lg:justify-end">
-                        <!-- Stacked hero images: back, middle, front -->
-                        <div class="relative w-full max-w-2xl">
-                            <!-- Back layer (replace with your transparent PNG) -->
-                            <img
-                                src="images/layer03.png"
-                                alt="Bricks Leads - background layer"
-                                class="md:block absolute top-12 w-full max-w-full opacity-90 transform rotate-2 floating z-10"
-                                loading="lazy"
-                                style="animation-delay: 0.5s"
-                                width="1200"
-                                height="800" />
-
-                            <!-- Middle layer (main mockup) -->
-                            <img
-                                src="images/layer02.png"
-                                alt="Bricks Leads App - Desktop Dashboard"
-                                class="relative w-full max-w-full transform -rotate-2 floating z-20"
-                                style="animation-delay: 0s"
-                                width="1200"
-                                height="800" />
-
-                            <!-- Front layer (replace with your transparent PNG, e.g., images/heroimage3.png) -->
-                            <img
-                                src="images/layer01.png"
-                                alt="Bricks Leads - foreground element"
-                                class="lg:block absolute -top-6 w-full max-w-full opacity-100 transform -rotate-1 floating z-30"
-                                loading="lazy"
-                                style="animation-delay: 0.8s"
-                                width="1200"
-                                height="800" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Beneficios Clave Section -->
-        <section id="beneficios" class="py-24 px-4 sm:px-6 lg:px-8 bg-secondary">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-20">
-                    <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-                        Todo lo que necesitas en una sola app
-                    </h2>
-                    <p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                        Eficiente. Intuitiva. Creada para agentes que están comenzando y para quienes manejan cientos de
-                        propiedades.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Beneficio 1 -->
-                    <div class="feature-card bg-card rounded-2xl p-8 shadow-soft border border-border">
-                        <div class="w-16 h-16 bg-brand/10 rounded-2xl flex items-center justify-center mb-6">
-                            <svg
-                                class="w-8 h-8 text-brand"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2.5"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12,6 12,12 16,14"></polyline>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-card-foreground mb-4">Ahorra tiempo</h3>
-                        <p class="text-muted-foreground leading-relaxed">
-                            Una app simple y rápida que te permite gestionar todo desde un solo lugar, sin
-                            complicaciones innecesarias.
-                        </p>
-                    </div>
-
-                    <!-- Beneficio 4 -->
-                    <div class="feature-card bg-card rounded-2xl p-8 shadow-soft border border-border">
-                        <div class="w-16 h-16 bg-success/10 rounded-2xl flex items-center justify-center mb-6">
-                            <svg
-                                class="w-8 h-8 text-success"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2.5"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-card-foreground mb-4">Impulsa tu negocio ¡Gratis!</h3>
-                        <p class="text-muted-foreground leading-relaxed">
-                            Disfruta de todas las funciones para organizar hasta 500 clientes y propiedades, totalmente
-                            gratis.
-                        </p>
-                    </div>
-
-                    <!-- Beneficio 2 -->
-                    <div class="feature-card bg-card rounded-2xl p-8 shadow-soft border border-border">
-                        <div class="w-16 h-16 bg-brand/10 rounded-2xl flex items-center justify-center mb-6">
-                            <svg
-                                class="w-8 h-8 text-brand"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2.5"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <rect x="7" y="4" width="10" height="16" rx="2" ry="2"></rect>
-                                <line x1="10" y1="6" x2="14" y2="6"></line>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-card-foreground mb-4">Funciona sin conexión</h3>
-                        <p class="text-muted-foreground leading-relaxed">
-                            Modo offline completo. Trabaja desde cualquier lugar, incluso sin internet, y sincroniza
-                            cuando vuelvas a conectarte.
-                        </p>
-                    </div>
-
-                    <!-- Beneficio 3 -->
-                    <div class="feature-card bg-card rounded-2xl p-8 shadow-soft border border-border">
-                        <div class="w-16 h-16 bg-success/10 rounded-2xl flex items-center justify-center mb-6">
-                            <svg
-                                class="w-8 h-8 text-success"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2.5"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14,2 14,8 20,8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10,9 9,9 8,9"></polyline>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-card-foreground mb-4">Gestión centralizada</h3>
-                        <p class="text-muted-foreground leading-relaxed">
-                            Propiedades, clientes, visitas y más. Todo organizado y accesible desde un solo lugar.
-                        </p>
-                    </div>
-
-                    <!-- Beneficio 5 -->
-                    <div class="feature-card bg-card rounded-2xl p-8 shadow-soft border border-border">
-                        <div class="w-16 h-16 bg-brand/10 rounded-2xl flex items-center justify-center mb-6">
-                            <svg
-                                class="w-8 h-8 text-brand"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2.5"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <polyline points="23,4 23,10 17,10"></polyline>
-                                <polyline points="1,20 1,14 7,14"></polyline>
-                                <path d="M3.51,9a9,9 0 0,1 14.13,-3.36L23,10"></path>
-                                <path d="M20.49,15a9,9 0 0,1 -14.13,3.36L1,14"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-card-foreground mb-4">Sincronización automática</h3>
-                        <p class="text-muted-foreground leading-relaxed">
-                            Compatible con iPhone, iPad, y Mac. Sincronización perfecta entre todos tus dispositivos.
-                        </p>
-                    </div>
-
-                    <!-- Beneficio 6 -->
-                    <div class="feature-card bg-card rounded-2xl p-8 shadow-soft border border-border">
-                        <div class="w-16 h-16 bg-success/10 rounded-2xl flex items-center justify-center mb-6">
-                            <svg
-                                class="w-8 h-8 text-success"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2.5"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-card-foreground mb-4">Hecha en Perú</h3>
-                        <p class="text-muted-foreground leading-relaxed">
-                            Desarrollada específicamente para el mercado inmobiliario peruano, con funcionalidades
-                            locales.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pensada para vos Section -->
-        <section class="py-24 px-4 sm:px-6 lg:px-8 bg-background">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="bg-secondary rounded-3xl p-12 shadow-soft-lg">
-                    <div
-                        class="w-24 h-24 bg-brand rounded-full flex items-center justify-center mx-auto mb-8 shadow-soft-lg">
-                        <svg
-                            class="w-12 h-12 text-white"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2.5"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                        </svg>
-                    </div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-8 leading-tight">Pensada para ti</h2>
-                    <p class="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10">
-                        Bricks Leads fue diseñada para agentes: sin complicaciones, lista para trabajar desde cualquier
-                        lugar.
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-                        <span class="bg-background px-4 py-2 rounded-full shadow-soft border border-border"
-                            >✅ Sin complicaciones</span
-                        >
-                        <span class="bg-background px-4 py-2 rounded-full shadow-soft border border-border"
-                            >📱 Lista para usar</span
-                        >
-                        <span class="bg-background px-4 py-2 rounded-full shadow-soft border border-border"
-                            >⚡ Rápida y eficiente</span
-                        >
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Formulario de Suscripción Section -->
-        <section id="formulario" class="py-24 px-4 sm:px-6 lg:px-8 bg-secondary">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-                    ¿Listo para revolucionar tu trabajo?
-                </h2>
-                <p class="text-xl text-muted-foreground mb-12 leading-relaxed">
-                    Únete a la lista de espera y sé el primero
-                </p>
-
-                <div class="bg-card rounded-3xl p-10 shadow-soft-xl max-w-lg mx-auto border border-border">
-                    <form
-                        id="subscription-form"
-                        class="space-y-6"
-                        action="https://formsubmit.co/707e6e012fa931048784ff0f766aa0df"
-                        method="POST"
-                        x-data="{ email: '', submitted: false, success: false }"
-                        x-show="!success"
-                        @submit="setTimeout(() => { success = true }, 200)">
-                        <input type="hidden" name="_subject" value="Nuevo registro en Bricks Leads" />
-                        <input type="hidden" name="_captcha" value="false" />
-                        <input type="hidden" name="_next" value="https://leads.bricks.pe/thank-you" />
-                        <input
-                            type="email"
-                            name="email"
-                            x-model="email"
-                            placeholder="Tu correo electrónico"
-                            class="input-field w-full px-5 py-4 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none bg-secondary border border-border"
-                            required />
+                            
+                            <!-- Beta Tester Checkbox -->
+                            <div class="flex items-center space-x-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="betaTester" 
+                                    name="betaTester"
+                                    class="w-5 h-5 text-bricks-yellow bg-white/10 border-gray-600 rounded focus:ring-bricks-yellow focus:ring-2"
+                                >
+                                <label for="betaTester" class="text-gray-300 text-sm cursor-pointer">
+                                    Quiero ser beta tester y probar la app antes del lanzamiento
+                                </label>
+                            </div>
+                        </form>
                         
-                        <!-- Beta Tester Checkbox -->
-                        <div class="flex items-center space-x-3">
-                            <input 
-                                type="checkbox" 
-                                id="subscriptionBetaTester" 
-                                name="betaTester"
-                                class="w-5 h-5 text-brand bg-white border-gray-300 rounded focus:ring-brand focus:ring-2"
-                            >
-                            <label for="subscriptionBetaTester" class="text-muted-foreground text-sm cursor-pointer">
-                                Quiero ser beta tester y probar la app antes del lanzamiento
-                            </label>
+                        <!-- Success Message -->
+                        <div x-data="{}" x-show="success" class="text-center py-8">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg
+                                    class="w-8 h-8 text-white"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-3 text-white">¡Gracias por registrarte!</h4>
+                            <p class="text-gray-300">Te avisaremos cuando Bricks Leads esté disponible.</p>
                         </div>
-                        
-                        <button
-                            type="submit"
-                            class="w-full btn-primary text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200">
-                            Quiero enterarme
-                        </button>
-                    </form>
-                    <div x-data="{}" x-show="success" class="text-center py-8">
-                        <div class="w-16 h-16 bg-success rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg
-                                class="w-8 h-8 text-white"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2.5"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <polyline points="20,6 9,17 4,12"></polyline>
-                            </svg>
-                        </div>
-                        <h4 class="text-xl font-semibold mb-3 text-card-foreground">¡Gracias por registrarte!</h4>
-                        <p class="text-muted-foreground">Te avisaremos cuando Bricks Leads esté disponible.</p>
                     </div>
-                    <p class="text-sm text-muted-foreground mt-6" x-show="!success">
-                        📧 Te avisaremos cuando esté disponible.
-                    </p>
+                </div>
+
+                <!-- Right Side - Hero Video -->
+                <div class="flex justify-center lg:justify-end">
+                    <video 
+                        id="heroVideo"
+                        src="videos/hero-video.mp4" 
+                        alt="Bricks App Interface" 
+                        class="max-w-full h-auto rounded-lg"
+                        autoplay 
+                        muted 
+                        playsinline
+                        preload="auto">
+                    </video>
+                    <img 
+                        id="heroImage"
+                        src="images/hero-image.png" 
+                        alt="Bricks App Interface" 
+                        class="max-w-full h-auto hidden">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Familia de Apps Bricks Section -->
-        <section class="py-24 px-4 sm:px-6 lg:px-8 bg-background">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">Familia de Apps</h2>
-                    <p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                        Desarrollamos excelentes herramientas para la industria inmobiliaria
-                    </p>
-                </div>
+    <!-- Footer Section -->
+    <footer class="pt-120 pb-16" style="background-color: #1A1A1A;">
+        <div class="container mx-auto px-4">
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <!-- Bricks Leads -->
-                    <div class="bg-card rounded-2xl p-8 shadow-soft border border-border text-center">
-                        <div class="w-20 h-20 bg-brand/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            <!-- Bottom Line -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                                          <p class="text-gray-400 flex items-center space-x-2" x-show="!success">
+                            <span>Desarrollada para iPhone, iPad y Mac.</span>
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
                             </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-brand mb-3">Bricks Leads</h3>
-                        <p class="text-muted-foreground mb-4 leading-relaxed">
-                            Capta, gestiona y organiza fácilmente tu negocio inmobiliario
                         </p>
-                        <span class="inline-block bg-brand/10 text-brand px-4 py-2 rounded-full text-sm font-medium">
-                            Próximamente
-                        </span>
-                    </div>
-
-                    <!-- Bricks Calculator -->
-                    <div class="bg-card rounded-2xl p-8 shadow-soft border border-border text-center">
-                        <div class="w-20 h-20 bg-success/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-success mb-3">Bricks Calculator</h3>
-                        <p class="text-muted-foreground mb-4 leading-relaxed">
-                            Cálculos hipotecarios simples, hermosos y accesibles
-                        </p>
-                        <a
-                            href="https://www.bricks.pe"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-block bg-success text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-accent-hover transition-colors">
-                            Disponible Ahora
-                        </a>
-                    </div>
+                    <p class="text-gray-400">Hecho con ❤️ para Perú.</p>  
+                    <p class="text-gray-400">© 2025 Bricks. Todos los derechos reservados.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </footer>
 
-        <!-- Footer -->
-        <footer class="bg-background border-t border-border py-16 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- Brand -->
-                    <div>
-                        <h3 class="text-3xl font-bold text-brand mb-6">Leads</h3>
-                        <p class="text-muted-foreground text-lg leading-relaxed">
-                            La nueva forma de trabajar en bienes raíces en Perú.
-                        </p>
-                    </div>
-
-                    <!-- Contact -->
-                    <div>
-                        <h4 class="text-xl font-semibold text-foreground mb-6">Contacto</h4>
-                        <p class="text-muted-foreground leading-relaxed">
-                            ¿Tenés preguntas? Escribinos a:<br />
-                            <a
-                                href="mailto:hello@bricks.pe"
-                                class="text-brand hover:text-accent-hover transition-colors font-medium">
-                                hello@bricks.pe
-                            </a>
-                        </p>
-                        <div class="mt-4 flex items-center gap-4 text-sm">
-                            <a href="https://www.bricks.pe/privacy.html" class="text-muted-foreground hover:text-brand"
-                                >Política de Privacidad</a
-                            >
-                            <span class="text-slate-300">•</span>
-                            <a href="https://www.bricks.pe/terms.html" class="text-muted-foreground hover:text-brand"
-                                >Términos de Servicio</a
-                            >
-                        </div>
-                    </div>
-                </div>
-
-                <div class="border-t border-border mt-12 pt-8 text-center">
-                    <p class="text-muted-foreground text-lg">Hecho con ❤️ para Perú.</p>
-                    <p class="text-sm text-muted-foreground mt-3">© 2025 Bricks. Todos los derechos reservados.</p>
-                </div>
-            </div>
-        </footer>
-
-        <!-- Simple JavaScript for handling -->
-        <script>
-            // Check for URL parameters on page load (after form submission redirect)
-            document.addEventListener("DOMContentLoaded", function () {
-                // Check if the URL has a submitted parameter
-                const urlParams = new URLSearchParams(window.location.search);
-                const submitted = urlParams.get("submitted");
-
-                if (submitted === "true") {
-                    // Find all forms with Alpine.js data
-                    const heroForm = document.getElementById("hero-form");
-                    const subscriptionForm = document.getElementById("subscription-form");
-
-                    // Set the success state in Alpine.js
-                    if (heroForm) {
-                        Alpine.store("heroForm", { success: true });
-                    }
-
-                    if (subscriptionForm) {
-                        Alpine.store("subscriptionForm", { success: true });
-                    }
-
-                    // Scroll to the form section
-                    const formSection = document.getElementById("formulario");
-                    if (formSection) {
-                        setTimeout(() => {
-                            formSection.scrollIntoView({
-                                behavior: "smooth",
-                                block: "start"
-                            });
-                        }, 500);
-                    }
+    <!-- Smooth Scrolling Script -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
+        });
 
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-                anchor.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute("href"));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start"
-                        });
-                    }
+        // Check for URL parameters on page load (after form submission redirect)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if the URL has a submitted parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const submitted = urlParams.get("submitted");
+
+            if (submitted === "true") {
+                // Find the form with Alpine.js data
+                const heroForm = document.getElementById("hero-form");
+
+                // Set the success state in Alpine.js
+                if (heroForm) {
+                    Alpine.store("heroForm", { success: true });
+                }
+            }
+
+            // Hero video to image transition
+            const heroVideo = document.getElementById('heroVideo');
+            const heroImage = document.getElementById('heroImage');
+            
+            if (heroVideo && heroImage) {
+                // Debug video loading
+                heroVideo.addEventListener('loadstart', () => console.log('Video loading started'));
+                heroVideo.addEventListener('canplay', () => console.log('Video can play'));
+                heroVideo.addEventListener('play', () => console.log('Video started playing'));
+                heroVideo.addEventListener('error', (e) => console.error('Video error:', e));
+                
+                heroVideo.addEventListener('ended', function() {
+                    heroVideo.style.display = 'none';
+                    heroImage.classList.remove('hidden');
                 });
-            });
-        </script>
-    </body>
+                
+                // Fallback: if video doesn't autoplay, show image after 3 seconds
+                setTimeout(() => {
+                    if (heroVideo.paused && heroVideo.currentTime === 0) {
+                        console.log('Video not playing, showing image instead');
+                        heroVideo.style.display = 'none';
+                        heroImage.classList.remove('hidden');
+                    }
+                }, 3000);
+            }
+        });
+    </script>
+</body>
 </html>

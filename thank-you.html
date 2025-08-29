@@ -20,7 +20,7 @@
         <meta
             property="og:description"
             content="Gracias por registrarte en Bricks Leads. Te avisaremos cuando la app esté disponible." />
-        <meta property="og:image" content="https://leads.bricks.pe/images/heroimage1.png" />
+        <meta property="og:image" content="https://leads.bricks.pe/images-2/hero-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:type" content="website" />
@@ -30,10 +30,10 @@
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="¡Gracias por registrarte! | Bricks Leads" />
         <meta name="twitter:description" content="Gracias por registrarte en Bricks Leads. Te avisaremos cuando la app esté disponible." />
-        <meta name="twitter:image" content="https://leads.bricks.pe/images/heroimage1.png" />
+        <meta name="twitter:image" content="https://leads.bricks.pe/images-2/hero-image.png" />
 
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="images/image1.PNG" />
+        <link rel="icon" type="image/x-icon" href="images-2/Leads-Logo.svg" />
 
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-F052KKS9DR"></script>
@@ -48,150 +48,56 @@
         <!-- TailwindCSS CDN -->
         <script src="https://cdn.tailwindcss.com"></script>
 
+        <!-- Google Fonts - Exo 2 -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
         <!-- Custom TailwindCSS Configuration -->
         <script>
             tailwind.config = {
                 theme: {
-                    container: {
-                        center: true,
-                        padding: "1rem",
-                        screens: {
-                            DEFAULT: "100%",
-                            sm: "640px",
-                            md: "768px",
-                            lg: "1024px",
-                            xl: "1200px",
-                            "2xl": "1200px"
-                        }
-                    },
                     extend: {
-                        colors: {
-                            border: "hsl(240 5.9% 90%)",
-                            input: "hsl(240 5.9% 90%)",
-                            ring: "hsl(240 5% 64.9%)",
-                            background: "hsl(0 0% 100%)",
-                            foreground: "hsl(240 10% 3.9%)",
-                            primary: {
-                                DEFAULT: "hsl(240 5.9% 10%)",
-                                foreground: "hsl(0 0% 98%)"
-                            },
-                            secondary: {
-                                DEFAULT: "hsl(240 4.8% 95.9%)",
-                                foreground: "hsl(240 5.9% 10%)"
-                            },
-                            destructive: {
-                                DEFAULT: "hsl(0 84.2% 60.2%)",
-                                foreground: "hsl(0 0% 98%)"
-                            },
-                            muted: {
-                                DEFAULT: "hsl(240 4.8% 95.9%)",
-                                foreground: "hsl(240 3.8% 46.1%)"
-                            },
-                            accent: {
-                                DEFAULT: "hsl(240 4.8% 95.9%)",
-                                foreground: "hsl(240 5.9% 10%)"
-                            },
-                            popover: {
-                                DEFAULT: "hsl(0 0% 100%)",
-                                foreground: "hsl(240 10% 3.9%)"
-                            },
-                            card: {
-                                DEFAULT: "hsl(0 0% 100%)",
-                                foreground: "hsl(240 10% 3.9%)"
-                            },
-                            brand: {
-                                DEFAULT: "#007AFF",
-                                foreground: "hsl(0 0% 98%)"
-                            },
-                            success: {
-                                DEFAULT: "#34C85A",
-                                foreground: "hsl(0 0% 98%)"
-                            }
-                        },
-                        borderRadius: {
-                            lg: "var(--radius)",
-                            md: "calc(var(--radius) - 2px)",
-                            sm: "calc(var(--radius) - 4px)"
-                        },
                         fontFamily: {
-                            sans: ["Inter", "sans-serif"]
+                            'exo': ['Exo 2', 'sans-serif'],
                         },
-                        boxShadow: {
-                            "soft": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
-                            "soft-md": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
-                            "soft-lg": "0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)",
-                            "soft-xl": "0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01)",
-                            "hover": "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                        colors: {
+                            'bricks-yellow': '#FFCC00',
+                            'bricks-dark': '#1a1a1a',
+                            'bricks-darker': '#0f0f0f',
+                            'bricks-light': '#2a2a2a',
                         }
                     }
                 }
-            };
+            }
         </script>
 
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-            rel="stylesheet" />
-        <meta name="theme-color" content="#007AFF" />
-
         <style>
-            /* CSS Custom Properties - Brand Guidelines */
-            :root {
-                --accent-color: #007aff;
-                --accent-hover: #0056b3;
-                --success-color: #34c85a;
-                --animation-timing: 0.3s ease;
-                --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-                --shadow-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-                --radius: 0.5rem;
+            body {
+                font-family: 'Exo 2', sans-serif;
+                background-color: #1A1A1A;
             }
-
-            /* Enhanced Bricks brand styling */
-            .hero-gradient {
-                background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+            
+            .gradient-bg {
+                background: url('images-2/BG.jpg') no-repeat center center fixed;
+                background-size: cover;
             }
-
-            .card-gradient {
-                background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-                backdrop-filter: blur(20px);
-                border: 1px solid rgba(255, 255, 255, 0.2);
+            
+            .glow-effect {
+                box-shadow: 0 0 30px rgba(255, 204, 0, 0.3);
             }
-
-            .btn-primary {
-                background: linear-gradient(135deg, #007aff 0%, #0056cc 100%);
+            
+            .card-hover {
                 transition: all 0.3s ease;
             }
-
-            .btn-primary:hover {
-                background: linear-gradient(135deg, #0056cc 0%, #004499 100%);
-                transform: translateY(-1px);
-                box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
+            
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 20px 40px rgba(255, 204, 0, 0.2);
             }
 
-            /* Smooth scrolling */
-            html {
-                scroll-behavior: smooth;
-            }
-
-            /* Custom scrollbar - Brand Guidelines */
-            ::-webkit-scrollbar {
-                width: 8px;
-                height: 8px;
-            }
-
-            ::-webkit-scrollbar-track {
-                background: #f1f1f1;
-            }
-
-            ::-webkit-scrollbar-thumb {
-                background: #007AFF;
-                border-radius: 40px;
-            }
-
-            ::-webkit-scrollbar-thumb:hover {
-                background: #0056b3;
+            .yellow-accent {
+                background: #FFCC00;
             }
         </style>
         <!-- Meta Pixel Code -->
@@ -224,21 +130,22 @@
         /></noscript>
         <!-- End Meta Pixel Code -->
     </head>
-    <body class="bg-background font-sans text-foreground antialiased">
+    <body class="black text-white font-exo">
         <!-- Navigation -->
-        <nav class="bg-background/95 backdrop-blur-md shadow-soft sticky top-0 z-50 border-b border-border">
+        <nav class="bg-bricks-dark/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-16">
                     <div class="flex items-center">
-                        <div class="flex-shrink-0">
-                            <h1 class="text-2xl font-bold text-brand">Bricks Leads</h1>
+                        <div class="flex-shrink-0 flex items-center space-x-2">
+                            <img src="images-2/Leads-Logo.svg" alt="Bricks Logo" class="w-8 h-8">
+                            <span class="text-xl font-bold text-white">Leads</span>
                         </div>
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-6">
                             <a
-                                href="index.html"
-                                class="text-muted-foreground hover:text-brand px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-secondary"
+                                href="index2.html"
+                                class="text-gray-300 hover:text-bricks-yellow px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-bricks-light"
                                 >Volver al inicio</a
                             >
                         </div>
@@ -248,24 +155,23 @@
         </nav>
 
         <!-- Thank You Section -->
-        <section class="hero-gradient text-white py-24 px-4 sm:px-6 lg:px-8 min-h-[80vh] flex items-center relative overflow-hidden">
-            <!-- Background decoration -->
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
-            <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
-            
+        <section class="pt-16 pb-24 px-4 sm:px-6 lg:px-8 min-h-[80vh] flex items-center relative overflow-hidden" style="background-color: #1A1A1A;">
             <div class="max-w-4xl mx-auto text-center relative z-10">
-                <div class="card-gradient rounded-3xl p-12 border border-white/20">
-                    <div class="w-24 h-24 bg-success rounded-full flex items-center justify-center mx-auto mb-8 shadow-soft-lg">
-                        <span class="text-4xl text-white">✓</span>
+                <div class="bg-bricks-light rounded-3xl p-12 border border-gray-700 card-hover">
+                    <div class="w-24 h-24 bg-bricks-yellow rounded-full flex items-center justify-center mx-auto mb-8 glow-effect">
+                        <svg class="w-12 h-12 text-black" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <polyline points="20,6 9,17 4,12"></polyline>
+                        </svg>
                     </div>
-                    <h1 class="text-4xl md:text-5xl font-bold mb-8 leading-tight tracking-tight">¡Gracias por registrarte!</h1>
-                    <p class="text-xl leading-relaxed mb-10 text-white/90">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-8 leading-tight tracking-tight text-white">
+                        ¡Gracias por registrarte!
+                    </h1>
+                    <p class="text-xl leading-relaxed mb-10 text-gray-300">
                         Te hemos agregado a nuestra lista de espera. Te avisaremos cuando Bricks Leads esté disponible.
                     </p>
                     <a
-                        href="index.html"
-                        class="inline-block btn-primary text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200"
+                        href="index2.html"
+                        class="inline-block yellow-accent text-black font-semibold px-8 py-4 rounded-xl hover:scale-105 transition-transform"
                         >Volver al inicio</a
                     >
                 </div>
@@ -273,14 +179,20 @@
         </section>
 
         <!-- Footer -->
-        <footer class="bg-background border-t border-border py-12 px-4 sm:px-6 lg:px-8">
+        <footer class="bg-bricks-dark border-t border-gray-800 py-12 px-4 sm:px-6 lg:px-8">
             <div class="max-w-7xl mx-auto text-center">
-                <p class="text-muted-foreground text-lg">Hecho con ❤️ para Perú.</p>
-                <p class="text-sm text-muted-foreground mt-3">© 2025 Bricks. Todos los derechos reservados.</p>
+                <p class="text-gray-400 flex items-center justify-center space-x-2 mb-3">
+                    <span>Desarrollada para iPhone, iPad y Mac.</span>
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                </p>
+                <p class="text-gray-400 text-lg">Hecho con ❤️ para Perú.</p>
+                <p class="text-sm text-gray-400 mt-3">© 2025 Bricks. Todos los derechos reservados.</p>
                 <div class="mt-4 flex items-center justify-center gap-4 text-sm">
-                    <a href="/privacy.html" class="text-muted-foreground hover:text-brand">Política de Privacidad</a>
-                    <span class="text-slate-300">•</span>
-                    <a href="/terms.html" class="text-muted-foreground hover:text-brand">Términos de Servicio</a>
+                    <a href="/privacy.html" class="text-gray-400 hover:text-bricks-yellow">Política de Privacidad</a>
+                    <span class="text-gray-600">•</span>
+                    <a href="/terms.html" class="text-gray-400 hover:text-bricks-yellow">Términos de Servicio</a>
                 </div>
             </div>
         </footer>

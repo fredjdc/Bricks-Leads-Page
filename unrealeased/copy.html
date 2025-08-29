@@ -1,0 +1,1138 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="apple-itunes-app" content="app-id=6744432658, app-clip-bundle-id=com.bricks.bricksapp.Clip" />
+        <meta
+            name="description"
+            content="Bricks Leads App: La app inmobiliaria premium exclusiva para iPhone en Perú. Captura, organiza y convierte más leads con la mejor experiencia iOS." />
+        <title>Bricks Leads App - Exclusiva para iPhone</title>
+
+        <!-- Modern fonts - Clay.earth style -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet" />
+
+        <!-- Favicon -->
+        <link rel="icon" href="../Bricks-Page/favicon.ico" sizes="32x32" />
+        <link rel="icon" type="image/png" href="../Bricks-Page/images/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="../Bricks-Page/images/favicon-16x16.png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="../Bricks-Page/images/apple-touch-icon.png" />
+        <meta name="theme-color" content="#007AFF" />
+
+        <!-- Tailwind CSS via CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    container: {
+                        center: true,
+                        padding: "1rem",
+                        screens: {
+                            DEFAULT: "100%",
+                            sm: "640px",
+                            md: "768px",
+                            lg: "1024px",
+                            xl: "1200px",
+                            "2xl": "1400px"
+                        }
+                    },
+                    extend: {
+                        colors: {
+                            // Clay.earth inspired color palette
+                            primary: {
+                                50: "#f0f9ff",
+                                100: "#e0f2fe",
+                                200: "#bae6fd",
+                                300: "#7dd3fc",
+                                400: "#38bdf8",
+                                500: "#0ea5e9",
+                                600: "#0284c7",
+                                700: "#0369a1",
+                                800: "#075985",
+                                900: "#0c4a6e"
+                            },
+                            gray: {
+                                50: "#fafafa",
+                                100: "#f5f5f5",
+                                200: "#e5e5e5",
+                                300: "#d4d4d4",
+                                400: "#a3a3a3",
+                                500: "#737373",
+                                600: "#525252",
+                                700: "#404040",
+                                800: "#262626",
+                                900: "#171717"
+                            },
+                            brand: {
+                                DEFAULT: "#007AFF",
+                                light: "#5AC8FA",
+                                dark: "#0056B3"
+                            },
+                            success: {
+                                DEFAULT: "#10B981",
+                                light: "#34D399",
+                                dark: "#059669"
+                            }
+                        },
+                        fontFamily: {
+                            sans: ["Inter", "system-ui", "sans-serif"],
+                            display: ["Inter", "system-ui", "sans-serif"]
+                        },
+                        fontSize: {
+                            '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
+                            'xs': ['0.75rem', { lineHeight: '1rem' }],
+                            'sm': ['0.875rem', { lineHeight: '1.25rem' }],
+                            'base': ['1rem', { lineHeight: '1.5rem' }],
+                            'lg': ['1.125rem', { lineHeight: '1.75rem' }],
+                            'xl': ['1.25rem', { lineHeight: '1.75rem' }],
+                            '2xl': ['1.5rem', { lineHeight: '2rem' }],
+                            '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+                            '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+                            '5xl': ['3rem', { lineHeight: '1' }],
+                            '6xl': ['3.75rem', { lineHeight: '1' }],
+                            '7xl': ['4.5rem', { lineHeight: '1' }],
+                            '8xl': ['6rem', { lineHeight: '1' }],
+                            '9xl': ['8rem', { lineHeight: '1' }]
+                        },
+                        boxShadow: {
+                            'soft': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+                            'soft-md': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                            'soft-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                            'soft-xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                            'glow': '0 0 20px rgba(0, 122, 255, 0.3)',
+                            'glow-lg': '0 0 40px rgba(0, 122, 255, 0.2)'
+                        },
+                        animation: {
+                            'fade-in': 'fadeIn 0.6s ease-out',
+                            'slide-up': 'slideUp 0.6s ease-out',
+                            'float': 'float 3s ease-in-out infinite',
+                            'gradient': 'gradient 15s ease infinite'
+                        },
+                        keyframes: {
+                            fadeIn: {
+                                '0%': { opacity: '0' },
+                                '100%': { opacity: '1' }
+                            },
+                            slideUp: {
+                                '0%': { opacity: '0', transform: 'translateY(30px)' },
+                                '100%': { opacity: '1', transform: 'translateY(0)' }
+                            },
+                            float: {
+                                '0%, 100%': { transform: 'translateY(0px)' },
+                                '50%': { transform: 'translateY(-10px)' }
+                            },
+                            gradient: {
+                                '0%, 100%': { backgroundPosition: '0% 50%' },
+                                '50%': { backgroundPosition: '100% 50%' }
+                            }
+                        }
+                    }
+                }
+            };
+        </script>
+
+        <!-- Alpine.js for interactive components -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+        <style type="text/tailwindcss">
+            @layer base {
+                :root {
+                    --radius: 0.75rem;
+                }
+
+                * {
+                    box-sizing: border-box;
+                }
+
+                html {
+                    scroll-behavior: smooth;
+                    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+                }
+
+                body {
+                    @apply bg-white text-gray-900 font-sans antialiased;
+                    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+                }
+
+                /* Clay.earth inspired typography */
+                h1, h2, h3, h4, h5, h6 {
+                    @apply font-semibold tracking-tight;
+                }
+
+                /* Smooth transitions */
+                * {
+                    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+                    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                    transition-duration: 150ms;
+                }
+
+                /* Custom scrollbar */
+                ::-webkit-scrollbar {
+                    width: 6px;
+                }
+
+                ::-webkit-scrollbar-track {
+                    background: #f1f5f9;
+                }
+
+                ::-webkit-scrollbar-thumb {
+                    background: #cbd5e1;
+                    border-radius: 3px;
+                }
+
+                ::-webkit-scrollbar-thumb:hover {
+                    background: #94a3b8;
+                }
+            }
+
+            @layer components {
+                /* Clay.earth style buttons */
+                .btn {
+                    @apply inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+                }
+
+                .btn-primary {
+                    @apply bg-brand text-white shadow-soft hover:shadow-soft-md hover:scale-105 focus:ring-brand/50;
+                }
+
+                .btn-secondary {
+                    @apply bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-500/50;
+                }
+
+                .btn-outline {
+                    @apply border border-gray-200 bg-white text-gray-900 hover:bg-gray-50 focus:ring-gray-500/50;
+                }
+
+                .btn-ghost {
+                    @apply text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:ring-gray-500/50;
+                }
+
+                /* Clay.earth style cards */
+                .card {
+                    @apply bg-white rounded-2xl border border-gray-100 shadow-soft hover:shadow-soft-md transition-all duration-300;
+                }
+
+                /* Gradient backgrounds */
+                .gradient-bg {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    background-size: 400% 400%;
+                    animation: gradient 15s ease infinite;
+                }
+
+                .gradient-bg-brand {
+                    background: linear-gradient(135deg, #007AFF 0%, #5AC8FA 100%);
+                    background-size: 400% 400%;
+                    animation: gradient 15s ease infinite;
+                }
+
+                /* Animations */
+                .animate-on-scroll {
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                .animate-on-scroll.animate {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                /* Glass effect */
+                .glass {
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                }
+            }
+
+            @layer utilities {
+                .text-balance {
+                    text-wrap: balance;
+                }
+            }
+        </style>
+    </head>
+
+    <body class="bg-white text-gray-900">
+        <!-- HERO SECTION - Clay.earth Style -->
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
+            <!-- Background pattern -->
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23f1f5f9" fill-opacity="0.4"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+            
+            <!-- Content -->
+            <div class="relative z-10 container mx-auto px-4 py-20">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <!-- Text Content -->
+                        <div class="text-left animate-on-scroll">
+                            <!-- Badge -->
+                            <div class="inline-flex items-center gap-2 px-4 py-2 bg-brand/10 text-brand rounded-full text-sm font-medium mb-8">
+                                <span class="w-2 h-2 bg-brand rounded-full"></span>
+                                Exclusivamente para iPhone, iPad, y Mac
+                            </div>
+                            
+                            <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-8 leading-tight text-balance">
+                                La mejor app para
+                                <span class="bg-gradient-to-r from-brand to-brand-light bg-clip-text text-transparent">gestión inmobiliaria</span>
+                            </h1>
+                            
+                            <p class="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-2xl">
+                                Captura, organiza y gestiona leads inmobiliarios con la aplicación más innovadora diseñada específicamente para agentes profesionales en Perú.
+                            </p>
+
+                            <!-- CTA Section -->
+                            <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                                <a href="#" class="btn btn-primary px-8 py-4 text-lg">
+                                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                                    </svg>
+                                    Descargar Gratis
+                                </a>
+                                
+                                <a href="#caracteristicas" class="btn btn-outline px-8 py-4 text-lg">
+                                    Ver Características
+                                </a>
+                            </div>
+
+                            <!-- App Store Badge -->
+                            <div class="mb-8">
+                                <img
+                                    src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+                                    alt="Download on the App Store"
+                                    class="h-14 md:h-16" />
+                            </div>
+
+                            <!-- Trust indicators -->
+                            <div class="flex flex-wrap items-center gap-8 text-gray-600 text-sm">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 bg-success/10 rounded-lg flex items-center justify-center">
+                                        <span class="text-success text-lg">✓</span>
+                                    </div>
+                                    <span>100% Gratuita</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 bg-brand/10 rounded-lg flex items-center justify-center">
+                                        <span class="text-brand text-lg">☁️</span>
+                                    </div>
+                                    <span>Sincronización iCloud</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 bg-primary-500/10 rounded-lg flex items-center justify-center">
+                                        <span class="text-primary-600 text-lg">🔒</span>
+                                    </div>
+                                    <span>Datos Seguros</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hero Image -->
+                        <div class="animate-on-scroll">
+                            <div class="relative">
+                                <!-- Main image with floating animation -->
+                                <img
+                                    src="images/hero-image1.png"
+                                    alt="Bricks Leads App en iPhone"
+                                    class="w-full max-w-md mx-auto animate-float drop-shadow-2xl" />
+                                
+                                <!-- Decorative elements -->
+                                <div class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-brand/20 to-brand-light/20 rounded-full blur-xl"></div>
+                                <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-success/20 to-success-light/20 rounded-full blur-xl"></div>
+                                
+                                <!-- Floating cards -->
+                                <div class="absolute -top-8 -left-8 card p-4 animate-float" style="animation-delay: 1s;">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 bg-brand/10 rounded-lg flex items-center justify-center">
+                                            <span class="text-brand text-xl">📱</span>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-medium text-gray-900">Captura Rápida</div>
+                                            <div class="text-xs text-gray-500">Con IA</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="absolute -bottom-8 -right-8 card p-4 animate-float" style="animation-delay: 2s;">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 bg-success/10 rounded-lg flex items-center justify-center">
+                                            <span class="text-success text-xl">📍</span>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-medium text-gray-900">GPS Automático</div>
+                                            <div class="text-xs text-gray-500">Ubicación precisa</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                <div class="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
+                    <div class="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION - Clay.earth Style -->
+        <section id="caracteristicas" class="py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <!-- Section Header -->
+                <div class="text-center mb-20 animate-on-scroll">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium mb-6">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                        Características Principales
+                    </div>
+                    <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 text-balance">
+                        Tu oficina inmobiliaria, en la palma de tu mano
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Diseñada específicamente para agentes inmobiliarios en Perú
+                    </p>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1: Camera AI -->
+                    <div class="card p-8 hover:shadow-soft-lg transition-all duration-300 animate-on-scroll group">
+                        <div class="w-16 h-16 bg-gradient-to-br from-brand to-brand-light rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M21 9V7L15 1H5C3.89 1 3 1.89 3 3V21C3 22.11 3.89 23 5 23H19C20.11 23 21 22.11 21 21V9M19 9H14V4H5V21H19V9Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Captura Rápida con IA</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Captura fotos de letreros y propiedades. Nuestra tecnología OCR extrae automáticamente precios, contactos y detalles clave.
+                        </p>
+                        <div class="flex items-center gap-2 text-success font-medium">
+                            <span class="w-2 h-2 bg-success rounded-full"></span>
+                            Transforma letreros en leads en segundos
+                        </div>
+                    </div>
+
+                    <!-- Feature 2: GPS Location -->
+                    <div class="card p-8 hover:shadow-soft-lg transition-all duration-300 animate-on-scroll group">
+                        <div class="w-16 h-16 bg-gradient-to-br from-success to-success-light rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">GPS Automático Inteligente</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Detecta automáticamente la ubicación exacta usando GPS y metadatos. Genera direcciones completas con departamento, provincia y distrito específicos para Perú.
+                        </p>
+                        <div class="flex items-center gap-2 text-success font-medium">
+                            <span class="w-2 h-2 bg-success rounded-full"></span>
+                            Ubicación precisa sin esfuerzo
+                        </div>
+                    </div>
+
+                    <!-- Feature 3: Document Management -->
+                    <div class="card p-8 hover:shadow-soft-lg transition-all duration-300 animate-on-scroll group">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2M18 20H6V4H13V9H18V20Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Gestión Profesional de Documentos</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Gestiona todos los documentos necesarios: Copia Literal, HR, PU, DNI, CRI, Título Archivado, Contrato de Intermediación y Exclusividad.
+                        </p>
+                        <div class="flex items-center gap-2 text-success font-medium">
+                            <span class="w-2 h-2 bg-success rounded-full"></span>
+                            Control total del proceso de venta/renta
+                        </div>
+                    </div>
+
+                    <!-- Feature 4: iCloud Sync -->
+                    <div class="card p-8 hover:shadow-soft-lg transition-all duration-300 animate-on-scroll group">
+                        <div class="w-16 h-16 bg-gradient-to-br from-brand to-brand-light rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M21 9V7L15 1H5C3.89 1 3 1.89 3 3V21C3 22.11 3.89 23 5 23H19C20.11 23 21 22.11 21 21V9M19 9H14V4H5V21H19V9Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Sincronización iCloud</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Sincronización automática con iCloud para respaldo seguro. Exporta todos tus leads a CSV con un solo toque para análisis en Excel.
+                        </p>
+                        <div class="flex items-center gap-2 text-success font-medium">
+                            <span class="w-2 h-2 bg-success rounded-full"></span>
+                            Datos seguros y accesibles en cualquier lugar
+                        </div>
+                    </div>
+
+                    <!-- Feature 5: Contact Management -->
+                    <div class="card p-8 hover:shadow-soft-lg transition-all duration-300 animate-on-scroll group">
+                        <div class="w-16 h-16 bg-gradient-to-br from-success to-success-light rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 4A4 4 0 0 1 16 8A4 4 0 0 1 12 12A4 4 0 0 1 8 8A4 4 0 0 1 12 4M12 14C16.42 14 20 15.79 20 18V20H4V18C4 15.79 7.58 14 12 14Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Seguimiento Inteligente</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Sistema de seguimiento avanzado con múltiples contactos por lead, historial de interacciones, notas personalizadas y recordatorios.
+                        </p>
+                        <div class="flex items-center gap-2 text-success font-medium">
+                            <span class="w-2 h-2 bg-success rounded-full"></span>
+                            Nunca pierdas el hilo con tus clientes
+                        </div>
+                    </div>
+
+                    <!-- Feature 6: UI/UX -->
+                    <div class="card p-8 hover:shadow-soft-lg transition-all duration-300 animate-on-scroll group">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2A10 10 0 0 0 2 12A10 10 0 0 0 12 22A10 10 0 0 0 22 12A10 10 0 0 0 12 2M12 4A8 8 0 0 1 20 12A8 8 0 0 1 12 20A8 8 0 0 1 4 12A8 8 0 0 1 12 4M12 6A6 6 0 0 0 6 12A6 6 0 0 0 12 18A6 6 0 0 0 18 12A6 6 0 0 0 12 6M12 8A4 4 0 0 1 16 12A4 4 0 0 1 12 16A4 4 0 0 1 8 12A4 4 0 0 1 12 8Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Interfaz Intuitiva</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Interfaz moderna diseñada específicamente para agentes inmobiliarios. Disponible en español e inglés con validación inteligente de datos.
+                        </p>
+                        <div class="flex items-center gap-2 text-success font-medium">
+                            <span class="w-2 h-2 bg-success rounded-full"></span>
+                            Experiencia profesional en español e inglés
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APP PREVIEW SECTION - Clay.earth Style -->
+        <section class="py-24 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <!-- Section Header -->
+                <div class="text-center mb-20 animate-on-scroll">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-600 rounded-full text-sm font-medium mb-6 shadow-soft">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                        Galería de Funcionalidades
+                    </div>
+                    <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 text-balance">
+                        Descubre cómo Bricks Leads potencia tu productividad
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Una experiencia diseñada específicamente para agentes inmobiliarios
+                    </p>
+                </div>
+
+                <!-- Screenshots Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Screenshot 1 -->
+                    <div class="text-center animate-on-scroll group">
+                        <div class="card p-6 mb-6 group-hover:shadow-soft-lg transition-all duration-300">
+                            <img src="images/image1.png" alt="Pantalla Principal" class="w-full rounded-xl shadow-soft" />
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Lista Inteligente</h3>
+                        <p class="text-gray-600 text-sm">Diseño nativo con navegación familiar</p>
+                    </div>
+
+                    <!-- Screenshot 2 -->
+                    <div class="text-center animate-on-scroll group">
+                        <div class="card p-6 mb-6 group-hover:shadow-soft-lg transition-all duration-300">
+                            <img src="images/image2.png" alt="Captura Rápida" class="w-full rounded-xl shadow-soft" />
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Captura con Cámara</h3>
+                        <p class="text-gray-600 text-sm">Tecnología optimizada para capturas rápidas</p>
+                    </div>
+
+                    <!-- Screenshot 3 -->
+                    <div class="text-center animate-on-scroll group">
+                        <div class="card p-6 mb-6 group-hover:shadow-soft-lg transition-all duration-300">
+                            <img src="images/image3.png" alt="Detalle de Lead" class="w-full rounded-xl shadow-soft" />
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Interfaz Nativa</h3>
+                        <p class="text-gray-600 text-sm">Controles que se sienten completamente familiares</p>
+                    </div>
+
+                    <!-- Screenshot 4 -->
+                    <div class="text-center animate-on-scroll group">
+                        <div class="card p-6 mb-6 group-hover:shadow-soft-lg transition-all duration-300">
+                            <img src="images/image4.png" alt="Integración Mapas" class="w-full rounded-xl shadow-soft" />
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Fácil Ubicación en Maps</h3>
+                        <p class="text-gray-600 text-sm">Localización precisa con tecnología Apple</p>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="text-center mt-16 animate-on-scroll">
+                    <div class="inline-flex items-center gap-4">
+                        <a href="#" class="btn btn-primary px-8 py-4 text-lg">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                            </svg>
+                            Probar Ahora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION - Clay.earth Style -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <!-- Section Header -->
+                <div class="text-center mb-20 animate-on-scroll">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium mb-6">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                        Testimonios
+                    </div>
+                    <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 text-balance">
+                        Lo que dicen nuestros usuarios
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Agentes inmobiliarios que ya transformaron su gestión
+                    </p>
+                </div>
+
+                <!-- Testimonials Grid -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="card p-8 hover:shadow-soft-lg transition-all duration-300 animate-on-scroll group">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-brand to-brand-light rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold text-lg">MG</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">María González</h4>
+                                <p class="text-sm text-gray-600">Agente Inmobiliaria - Lima</p>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-600 mb-6 leading-relaxed">
+                            "Como usuario de iPhone desde hace años, finalmente tengo una app inmobiliaria que se siente completamente nativa. La integración con iCloud es perfecta."
+                        </blockquote>
+                        <div class="flex items-center justify-between">
+                            <div class="flex text-brand">
+                                <span>★★★★★</span>
+                            </div>
+                            <div class="text-xs text-gray-500">Verificado</div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="card p-8 hover:shadow-soft-lg transition-all duration-300 animate-on-scroll group">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-success to-success-light rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold text-lg">CM</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Carlos Mendoza</h4>
+                                <p class="text-sm text-gray-600">Broker - Miraflores</p>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-600 mb-6 leading-relaxed">
+                            "La calidad de la app es increíble. Se nota que está hecha específicamente para iPhone. Nunca había usado una app inmobiliaria tan fluida."
+                        </blockquote>
+                        <div class="flex items-center justify-between">
+                            <div class="flex text-brand">
+                                <span>★★★★★</span>
+                            </div>
+                            <div class="text-xs text-gray-500">Verificado</div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="card p-8 hover:shadow-soft-lg transition-all duration-300 animate-on-scroll group">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold text-lg">AR</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Ana Rodríguez</h4>
+                                <p class="text-sm text-gray-600">Agente Independiente - San Isidro</p>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-600 mb-6 leading-relaxed">
+                            "Poder capturar leads en mi iPhone y revisarlos inmediatamente en mi iPad es un game changer. Solo Apple puede ofrecer esta integración."
+                        </blockquote>
+                        <div class="flex items-center justify-between">
+                            <div class="flex text-brand">
+                                <span>★★★★★</span>
+                            </div>
+                            <div class="text-xs text-gray-500">Verificado</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="text-center mt-16 animate-on-scroll">
+                    <div class="inline-flex items-center gap-8 text-gray-600 text-sm">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-success/10 rounded-lg flex items-center justify-center">
+                                <span class="text-success text-lg">✓</span>
+                            </div>
+                            <span>+500 usuarios activos</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-brand/10 rounded-lg flex items-center justify-center">
+                                <span class="text-brand text-lg">⭐</span>
+                            </div>
+                            <span>4.9/5 calificación</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-primary-500/10 rounded-lg flex items-center justify-center">
+                                <span class="text-primary-600 text-lg">📱</span>
+                            </div>
+                            <span>Exclusivo para iPhone</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq" class="py-12 md:py-24 bg-slate-50">
+            <div class="container px-4 md:px-6">
+                <div class="mb-12 text-center">
+                    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Preguntas Frecuentes</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto mt-4">Resolvemos las dudas más comunes</p>
+                </div>
+
+                <div class="mx-auto max-w-4xl space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="rounded-2xl border bg-background" x-data="{ open: false }">
+                        <button
+                            @click="open = !open"
+                            class="flex w-full items-center justify-between px-6 py-4 text-left"
+                            aria-expanded="false"
+                            :aria-expanded="open.toString()">
+                            <span class="text-lg font-medium"> ¿Por qué desarrollamos exclusivamente para iOS? </span>
+                            <svg
+                                class="h-5 w-5 transform transition-transform duration-200"
+                                :class="{'rotate-180': open}"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div x-show="open" x-collapse>
+                            <div class="px-6 pb-4 text-muted-foreground">
+                                <p>
+                                    Nos enfocamos en iOS para ofrecer la experiencia más fluida y profesional posible.
+                                    Esto nos permite aprovechar tecnologías avanzadas como iCloud, reconocimiento de
+                                    carácteres y la integración perfecta con el ecosistema Apple, garantizando un
+                                    rendimiento superior y una experiencia de usuario excepcional.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="rounded-2xl border bg-background" x-data="{ open: false }">
+                        <button
+                            @click="open = !open"
+                            class="flex w-full items-center justify-between px-6 py-4 text-left"
+                            aria-expanded="false"
+                            :aria-expanded="open.toString()">
+                            <span class="text-lg font-medium">
+                                ¿Qué dispositivos son compatibles con la aplicación?
+                            </span>
+                            <svg
+                                class="h-5 w-5 transform transition-transform duration-200"
+                                :class="{'rotate-180': open}"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div x-show="open" x-collapse>
+                            <div class="px-6 pb-4 text-muted-foreground">
+                                <p>
+                                    Bricks Leads es compatible con dispositivos iOS modernos que ejecuten iOS 15 o
+                                    superior. La aplicación está optimizada para aprovechar al máximo las capacidades de
+                                    los dispositivos más recientes, ofreciendo la mejor experiencia en términos de
+                                    velocidad, seguridad y funcionalidad.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="rounded-2xl border bg-background" x-data="{ open: false }">
+                        <button
+                            @click="open = !open"
+                            class="flex w-full items-center justify-between px-6 py-4 text-left"
+                            aria-expanded="false"
+                            :aria-expanded="open.toString()">
+                            <span class="text-lg font-medium">
+                                ¿Puedo acceder a mis datos desde múltiples dispositivos?
+                            </span>
+                            <svg
+                                class="h-5 w-5 transform transition-transform duration-200"
+                                :class="{'rotate-180': open}"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div x-show="open" x-collapse>
+                            <div class="px-6 pb-4 text-muted-foreground">
+                                <p>
+                                    ¡Absolutamente! Gracias a la integración con iCloud, todos tus leads, contactos y
+                                    documentos se sincronizan automáticamente entre todos tus dispositivos Apple. Esto
+                                    significa que puedes capturar leads en tu dispositivo móvil y acceder a ellos
+                                    inmediatamente desde tu tablet o computadora.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="rounded-2xl border bg-background" x-data="{ open: false }">
+                        <button
+                            @click="open = !open"
+                            class="flex w-full items-center justify-between px-6 py-4 text-left"
+                            aria-expanded="false"
+                            :aria-expanded="open.toString()">
+                            <span class="text-lg font-medium"> ¿Cómo protejo la información de mis clientes? </span>
+                            <svg
+                                class="h-5 w-5 transform transition-transform duration-200"
+                                :class="{'rotate-180': open}"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div x-show="open" x-collapse>
+                            <div class="px-6 pb-4 text-muted-foreground">
+                                <p>
+                                    La seguridad es nuestra prioridad, por tanto, todos los datos se almacenan de forma
+                                    segura en iCloud con encriptación. Solo tu puedes acceder a tu información.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="rounded-2xl border bg-background" x-data="{ open: false }">
+                        <button
+                            @click="open = !open"
+                            class="flex w-full items-center justify-between px-6 py-4 text-left"
+                            aria-expanded="false"
+                            :aria-expanded="open.toString()">
+                            <span class="text-lg font-medium"> ¿Puedo trabajar sin conexión a internet? </span>
+                            <svg
+                                class="h-5 w-5 transform transition-transform duration-200"
+                                :class="{'rotate-180': open}"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div x-show="open" x-collapse>
+                            <div class="px-6 pb-4 text-muted-foreground">
+                                <p>
+                                    Sí, puedes capturar leads, gestionar contactos y organizar documentos sin conexión a
+                                    internet. La aplicación funciona completamente offline y sincroniza automáticamente
+                                    todos los datos cuando recuperas la conexión, asegurando que nunca pierdas
+                                    información importante.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="rounded-2xl border bg-background" x-data="{ open: false }">
+                        <button
+                            @click="open = !open"
+                            class="flex w-full items-center justify-between px-6 py-4 text-left"
+                            aria-expanded="false"
+                            :aria-expanded="open.toString()">
+                            <span class="text-lg font-medium">
+                                ¿Cómo puedo exportar y analizar mis datos de leads?
+                            </span>
+                            <svg
+                                class="h-5 w-5 transform transition-transform duration-200"
+                                :class="{'rotate-180': open}"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div x-show="open" x-collapse>
+                            <div class="px-6 pb-4 text-muted-foreground">
+                                <p>
+                                    Exporta fácilmente todos tus leads en formato CSV con un solo toque. Los datos se
+                                    pueden abrir directamente en Excel, Google Sheets o cualquier software de análisis
+                                    para generar reportes, estadísticas y métricas de rendimiento. Perfecto para
+                                    presentaciones a clientes o análisis de mercado.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 7 -->
+                    <div class="rounded-2xl border bg-background" x-data="{ open: false }">
+                        <button
+                            @click="open = !open"
+                            class="flex w-full items-center justify-between px-6 py-4 text-left"
+                            aria-expanded="false"
+                            :aria-expanded="open.toString()">
+                            <span class="text-lg font-medium">
+                                ¿La aplicación funciona en todo el territorio peruano?
+                            </span>
+                            <svg
+                                class="h-5 w-5 transform transition-transform duration-200"
+                                :class="{'rotate-180': open}"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div x-show="open" x-collapse>
+                            <div class="px-6 pb-4 text-muted-foreground">
+                                <p>
+                                    Sí, Bricks Leads App está disponible en todo Perú y incluye mapas detallados de
+                                    todos los departamentos, provincias y distritos del país. La geolocalización
+                                    automática funciona en cualquier ubicación peruana, proporcionando direcciones
+                                    precisas y navegación GPS optimizada para el mercado inmobiliario local.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 8 -->
+                    <div class="rounded-2xl border bg-background" x-data="{ open: false }">
+                        <button
+                            @click="open = !open"
+                            class="flex w-full items-center justify-between px-6 py-4 text-left"
+                            aria-expanded="false"
+                            :aria-expanded="open.toString()">
+                            <span class="text-lg font-medium"> ¿Qué hace única a Bricks Leads App en el mercado? </span>
+                            <svg
+                                class="h-5 w-5 transform transition-transform duration-200"
+                                :class="{'rotate-180': open}"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div x-show="open" x-collapse>
+                            <div class="px-6 pb-4 text-muted-foreground">
+                                <p>
+                                    Somos la única aplicación inmobiliaria desarrollada específicamente para el mercado
+                                    peruano con tecnología de inteligencia artificial para captura de leads, gestión
+                                    completa de documentos legales, sincronización automática con iCloud y una interfaz
+                                    diseñada exclusivamente para agentes inmobiliarios. Nuestra app
+                                    combina la potencia de la tecnología moderna con la simplicidad que necesitas en el
+                                    campo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DOWNLOAD SECTION - Clay.earth Style -->
+        <section id="descarga" class="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+            <!-- Background pattern -->
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+            
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <div class="max-w-4xl mx-auto animate-on-scroll">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-8 backdrop-blur-sm">
+                        <span class="w-2 h-2 bg-brand rounded-full"></span>
+                        Descarga Gratuita
+                    </div>
+                    
+                    <h2 class="text-4xl md:text-7xl font-bold mb-8 text-balance">
+                        Descarga Bricks Leads App
+                    </h2>
+
+                    <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                        Únete a cientos de agentes inmobiliarios que ya están transformando su negocio con la app premium para iPhone
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+                        <a href="#" class="btn bg-brand hover:bg-brand-dark text-white px-8 py-4 text-lg shadow-glow hover:shadow-glow-lg transition-all duration-300">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                            </svg>
+                            Descargar Gratis
+                        </a>
+                        
+                        <a href="#faq" class="btn bg-white/10 hover:bg-white/20 text-white px-8 py-4 text-lg backdrop-blur-sm transition-all duration-300">
+                            Ver Preguntas Frecuentes
+                        </a>
+                    </div>
+
+                    <!-- App Store Badge -->
+                    <div class="mb-12">
+                        <img
+                            src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83"
+                            alt="Download on the App Store"
+                            class="h-14 md:h-16 mx-auto" />
+                    </div>
+
+                    <!-- Trust indicators -->
+                    <div class="flex flex-wrap justify-center items-center gap-8 text-gray-300 text-sm">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-brand/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                                <span class="text-brand-light text-xl">🍎</span>
+                            </div>
+                            <span>Exclusivamente para iPhone</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-success/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                                <span class="text-success-light text-xl">✓</span>
+                            </div>
+                            <span>100% Gratuita</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-primary-500/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                                <span class="text-primary-400 text-xl">☁️</span>
+                            </div>
+                            <span>Sincronización iCloud</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer - Clay.earth Style -->
+        <footer class="bg-gray-900 py-16 text-gray-300">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-4 gap-8 mb-12">
+                    <!-- Brand -->
+                    <div class="md:col-span-2">
+                        <a href="#" class="text-2xl font-bold text-white mb-4 inline-block">Bricks Leads App</a>
+                        <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
+                            La herramienta inmobiliaria premium exclusiva en Perú. Diseñada específicamente para agentes profesionales que buscan la mejor experiencia iOS.
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gray-700 transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gray-700 transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Support -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-4">Soporte</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#" class="hover:text-white transition-colors">Centro de Ayuda</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-white transition-colors">Documentación</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-white transition-colors">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-4">Contacto</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a
+                                    href="https://wa.me/51953431080?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Bricks%20Leads%20App"
+                                    target="_blank"
+                                    class="flex items-center gap-2 hover:text-white transition-colors">
+                                    <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                    </svg>
+                                    WhatsApp
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:soporte@bricksleads.com" class="flex items-center gap-2 hover:text-white transition-colors">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                    soporte@bricksleads.com
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bottom -->
+                <div class="border-t border-gray-800 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-gray-400">
+                            © 2025 Bricks Leads App. Todos los derechos reservados.
+                        </p>
+                        <div class="flex items-center gap-6 text-sm">
+                            <a href="#" class="hover:text-white transition-colors">Política de Privacidad</a>
+                            <a href="#" class="hover:text-white transition-colors">Términos de Servicio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scroll Animation Script -->
+        <script>
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animate");
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with animate-on-scroll class
+            document.addEventListener("DOMContentLoaded", function () {
+                const animatedElements = document.querySelectorAll(".animate-on-scroll");
+                animatedElements.forEach((el) => observer.observe(el));
+            });
+        </script>
+    </body>
+</html>
