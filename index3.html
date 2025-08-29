@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
+    <!-- Alpine.js for interactions -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
     <style>
         * {
             margin: 0;
@@ -173,7 +176,8 @@
         
         .app-screenshots {
             position: relative;
-            height: 700px;
+            height: auto;
+            min-height: 400px;
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -183,6 +187,7 @@
             max-width: 100%;
             height: auto;
             border-radius: 20px;
+            width: 100%;
         }
         
 
@@ -218,8 +223,10 @@
         }
         
         .app-view {
-            width: 700px;
-            height: 750px;
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            min-height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -229,7 +236,8 @@
         
         .app-view img {
             width: 100%;
-            height: 100%;
+            height: auto;
+            max-height: 750px;
             object-fit: contain;
         }
         
@@ -402,11 +410,12 @@
             }
             
             .app-screenshots {
-                height: 400px;
+                height: auto;
+                min-height: 300px;
             }
             
             .hero-image {
-                max-width: 90%;
+                max-width: 100%;
             }
             
             .app-views {
@@ -416,8 +425,10 @@
             }
             
             .app-view {
-                width: 700px;
-                height: 750px;
+                width: 100%;
+                max-width: 500px;
+                height: auto;
+                min-height: 300px;
             }
             
             .app-view.right {
@@ -454,15 +465,55 @@
                     <p>Captura, organiza y gestiona tu cartera inmobiliaria con la aplicación más innovadora diseñada especialmente para agentes en Perú.</p>
                     
                     <div class="email-section">
-                        <input type="email" class="email-input" placeholder="Tu correo electrónico">
-                        <button class="hero-cta">Quiero Enterarme</button>
+                        <form
+                            id="hero-form"
+                            class="email-section"
+                            action="https://formsubmit.co/707e6e012fa931048784ff0f766aa0df"
+                            method="POST"
+                            x-data="{ email: '', submitted: false, success: false }"
+                            x-show="!success"
+                            @submit="setTimeout(() => { success = true }, 200)">
+                            <input type="hidden" name="_subject" value="Nuevo registro en Bricks Leads" />
+                            <input type="hidden" name="_captcha" value="false" />
+                            <input type="hidden" name="_next" value="https://leads.bricks.pe/thank-you" />
+                            
+                            <input 
+                                type="email" 
+                                name="email"
+                                x-model="email"
+                                class="email-input" 
+                                placeholder="Tu correo electrónico"
+                                required
+                            >
+                            <button 
+                                type="submit"
+                                class="hero-cta">Quiero Enterarme</button>
+                        </form>
+                        
+                        <!-- Success Message -->
+                        <div x-data="{}" x-show="success" class="text-center py-8">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg
+                                    class="w-8 h-8 text-white"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="20,6 9,17 4,12"></polyline>
+                                </svg>
+                            </div>
+                            <h4 class="text-xl font-semibold mb-3 text-foreground">¡Gracias por registrarte!</h4>
+                            <p class="text-muted-foreground">Te avisaremos cuando Bricks Leads esté disponible.</p>
+                        </div>
                     </div>
                     
                     <!-- Beta Tester Checkbox -->
-                    <div class="flex items-center space-x-3 mb-4">
+                    <div class="flex items-center space-x-3 mb-4" x-show="!success">
                         <input 
                             type="checkbox" 
                             id="betaTester" 
+                            name="betaTester"
                             class="w-5 h-5 text-yellow-500 bg-white border-gray-300 rounded focus:ring-yellow-500 focus:ring-2"
                         >
                         <label for="betaTester" class="text-gray-600 text-sm cursor-pointer">
@@ -510,29 +561,21 @@
     </footer>
 
     <script>
-        // Simple form handling
+        // Check for URL parameters on page load (after form submission redirect)
         document.addEventListener('DOMContentLoaded', function() {
-            const emailInput = document.querySelector('.email-input');
-            const ctaButtons = document.querySelectorAll('.hero-cta, .cta-button');
-            
-            ctaButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const email = emailInput ? emailInput.value : '';
-                    const betaTesterCheckbox = document.getElementById('betaTester');
-                    const isBetaTester = betaTesterCheckbox ? betaTesterCheckbox.checked : false;
-                    
-                    if (email) {
-                        let message = '¡Gracias por tu interés! Te mantendremos informado sobre el lanzamiento de Bricks.';
-                        if (isBetaTester) {
-                            message = '¡Gracias por tu interés! Te hemos registrado como beta tester. Te contactaremos pronto para que pruebes la app antes del lanzamiento.';
-                        }
-                        alert(message);
-                    } else {
-                        alert('Por favor, ingresa tu email para recibir actualizaciones.');
-                    }
-                });
-            });
+            // Check if the URL has a submitted parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const submitted = urlParams.get("submitted");
+
+            if (submitted === "true") {
+                // Find the form with Alpine.js data
+                const heroForm = document.getElementById("hero-form");
+
+                // Set the success state in Alpine.js
+                if (heroForm) {
+                    Alpine.store("heroForm", { success: true });
+                }
+            }
         });
     </script>
 </body>
