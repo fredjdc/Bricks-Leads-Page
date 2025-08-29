@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bricks - Gestión Inmobiliaria</title>
+    
+    <!-- Google Fonts - Exo 2 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: 500;
+        }
+        
+        .cta-button {
+            background-color: #333333;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #555555;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        
+        .hero-text p {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .email-section {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .email-input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Exo 2', sans-serif;
+        }
+        
+        .email-input:focus {
+            outline: none;
+            border-color: #333333;
+        }
+        
+        .hero-cta {
+            background-color: #333333;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .hero-cta:hover {
+            background-color: #555555;
+        }
+        
+        .availability {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666666;
+            font-size: 14px;
+        }
+        
+        .apple-icon {
+            width: 16px;
+            height: 16px;
+            background-color: #333333;
+            border-radius: 2px;
+        }
+        
+        .app-screenshots {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+        
+
+        
+        /* Mid Section */
+        .mid-section {
+            padding: 100px 0;
+            text-align: center;
+            background-color: #ffffff;
+        }
+        
+        .mid-section h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        
+        .mid-section p {
+            font-size: 18px;
+            color: #666666;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            line-height: 1.6;
+        }
+        
+        .app-views {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .app-view {
+            width: 700px;
+            height: 750px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-view img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .app-view.left {
+            transform: rotate(-5deg);
+            z-index: 1;
+        }
+        
+        .app-view.right {
+            transform: rotate(5deg);
+            margin-left: -250px;
+            z-index: 2;
+        }
+        
+        /* App Family Section */
+        .app-family {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        
+        .app-family h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        
+        .app-family p {
+            font-size: 18px;
+            color: #666666;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+        
+        .app-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .app-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .leads-icon {
+            background-color: #FFCC00;
+        }
+        
+        .calc-icon {
+            background-color: #4CAF50;
+        }
+        
+        .app-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333333;
+        }
+        
+        .app-card p {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .card-button {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .leads-button {
+            background-color: #f0f0f0;
+            color: #333333;
+        }
+        
+        .calc-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .card-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #ffffff;
+            padding: 60px 0 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333333;
+        }
+        
+        .footer-section p {
+            color: #666666;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .footer-section a {
+            color: #333333;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #e5e5e5;
+            color: #666666;
+            font-size: 14px;
+        }
+        
+        .footer-bottom p {
+            margin-bottom: 5px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .email-section {
+                flex-direction: column;
+            }
+            
+            .app-screenshots {
+                height: 400px;
+            }
+            
+            .hero-image {
+                max-width: 90%;
+            }
+            
+            .app-views {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .app-view {
+                width: 700px;
+                height: 750px;
+            }
+            
+            .app-view.right {
+                margin-left: 0;
+                margin-top: -40px;
+            }
+            
+            .app-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <img src="images-3/Leads-Logo.svg" alt="Bricks Leads Logo">
+                    </div>
+                    <span>Leads</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>¡Muy Pronto! una app para tu gestión inmobiliaria</h1>
+                    <p>Captura, organiza y gestiona tu cartera inmobiliaria con la aplicación más innovadora diseñada especialmente para agentes en Perú.</p>
+                    
+                    <div class="email-section">
+                        <input type="email" class="email-input" placeholder="Tu correo electrónico">
+                        <button class="hero-cta">Quiero Enterarme</button>
+                    </div>
+                    
+                    <div class="availability">
+                        <span>Estará disponible para iPhone, iPad y Mac.</span>
+                        <div class="apple-icon"></div>
+                    </div>
+                </div>
+                
+                <div class="app-screenshots">
+                    <img src="images-3/hero-image.png" alt="Bricks Leads App Screenshots" class="float">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mid Section -->
+    <section class="mid-section" id="beneficios">
+        <div class="container">
+            <h2>Tu oficina inmobiliaria, en cualquier lugar</h2>
+            <p>Eficiente. Intuitiva. Tu negocio, sincronizado siempre contigo. Sin importar el dispositivo (iPhone, iPad, o Mac) la información está lista cuando la necesitas.</p>
+            
+            <div class="app-views">
+                <div class="app-view left">
+                    <img src="images-3/Left-Side.png" alt="Bricks Leads App - Left Side">
+                </div>
+                <div class="app-view right">
+                    <img src="images-3/Right-Side.png" alt="Bricks Leads App - Right Side">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">        
+            <div class="footer-bottom">
+                <p>Hecho para Perú</p>
+                <p>© 2025 Bricks. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailInput = document.querySelector('.email-input');
+            const ctaButtons = document.querySelectorAll('.hero-cta, .cta-button');
+            
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const email = emailInput ? emailInput.value : '';
+                    if (email) {
+                        alert('¡Gracias por tu interés! Te mantendremos informado sobre el lanzamiento de Bricks.');
+                    } else {
+                        alert('Por favor, ingresa tu email para recibir actualizaciones.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
