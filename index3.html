@@ -126,7 +126,7 @@
         .email-section {
             display: flex;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         
         .email-input {
@@ -488,19 +488,6 @@
                             <button 
                                 type="submit"
                                 class="hero-cta">Quiero Enterarme</button>
-                            
-                            <!-- Beta Tester Checkbox -->
-                            <div style="display: flex; align-items: center; gap: 12px; margin-top: 16px;" x-show="!success">
-                                <input 
-                                    type="checkbox" 
-                                    id="betaTester" 
-                                    name="betaTester"
-                                    style="width: 20px; height: 20px; accent-color: #FFCC00;"
-                                >
-                                <label for="betaTester" style="color: #666666; font-size: 14px; cursor: pointer;">
-                                    Quiero ser beta tester y probar la app antes del lanzamiento
-                                </label>
-                            </div>
                         </form>
                         
                         <!-- Success Message -->
@@ -520,6 +507,19 @@
                             <p class="text-muted-foreground">Te avisaremos cuando Bricks Leads esté disponible.</p>
                         </div>
                     </div>
+                    
+                    <!-- Beta Tester Checkbox -->
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 48px;" x-show="!success">
+                                <input 
+                                    type="checkbox" 
+                                    id="betaTester" 
+                                    name="betaTester"
+                                    style="width: 20px; height: 20px; accent-color: #FFCC00;"
+                                >
+                                <label for="betaTester" style="color: #666666; font-size: 14px; cursor: pointer;">
+                                    Quiero ser beta tester y probar la app antes del lanzamiento
+                                </label>
+                            </div>
                     
                     <div class="availability">
                         <span>Estará disponible para iPhone, iPad y Mac.</span>
