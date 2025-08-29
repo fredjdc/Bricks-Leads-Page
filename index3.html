@@ -488,6 +488,19 @@
                             <button 
                                 type="submit"
                                 class="hero-cta">Quiero Enterarme</button>
+                            
+                            <!-- Beta Tester Checkbox -->
+                            <div style="display: flex; align-items: center; gap: 12px; margin-top: 16px;" x-show="!success">
+                                <input 
+                                    type="checkbox" 
+                                    id="betaTester" 
+                                    name="betaTester"
+                                    style="width: 20px; height: 20px; accent-color: #FFCC00;"
+                                >
+                                <label for="betaTester" style="color: #666666; font-size: 14px; cursor: pointer;">
+                                    Quiero ser beta tester y probar la app antes del lanzamiento
+                                </label>
+                            </div>
                         </form>
                         
                         <!-- Success Message -->
@@ -506,19 +519,6 @@
                             <h4 class="text-xl font-semibold mb-3 text-foreground">¡Gracias por registrarte!</h4>
                             <p class="text-muted-foreground">Te avisaremos cuando Bricks Leads esté disponible.</p>
                         </div>
-                    </div>
-                    
-                    <!-- Beta Tester Checkbox -->
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;" x-show="!success">
-                        <input 
-                            type="checkbox" 
-                            id="betaTester" 
-                            name="betaTester"
-                            style="width: 20px; height: 20px; accent-color: #FFCC00;"
-                        >
-                        <label for="betaTester" style="color: #666666; font-size: 14px; cursor: pointer;">
-                            Quiero ser beta tester y probar la app antes del lanzamiento
-                        </label>
                     </div>
                     
                     <div class="availability">
