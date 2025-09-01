@@ -39,10 +39,62 @@
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-F052KKS9DR"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-            gtag('config', 'G-F052KKS9DR');
+            // Default to analytics_storage denied until consent is given
+            gtag("consent", "default", {
+                analytics_storage: "denied"
+            });
+
+            // Function to update consent based on user choice
+            function updateConsent(consent) {
+                if (consent === "granted") {
+                    gtag("consent", "update", {
+                        analytics_storage: "granted"
+                    });
+                    // Store consent in localStorage
+                    localStorage.setItem("analytics_consent", "granted");
+                    // Hide consent banner
+                    document.getElementById("cookie-consent-banner").style.display = "none";
+                } else {
+                    // Keep denied or explicit denial
+                    gtag("consent", "update", {
+                        analytics_storage: "denied"
+                    });
+                    // Store the denial in localStorage
+                    localStorage.setItem("analytics_consent", "denied");
+                    // Hide consent banner
+                    document.getElementById("cookie-consent-banner").style.display = "none";
+                }
+            }
+
+            // Configure Google Analytics
+            gtag("config", "G-F052KKS9DR");
+
+            // Check for previously stored consent on page load
+            document.addEventListener("DOMContentLoaded", function () {
+                const storedConsent = localStorage.getItem("analytics_consent");
+                if (storedConsent === "granted") {
+                    updateConsent("granted");
+                } else if (storedConsent === "denied") {
+                    // User explicitly denied before
+                    document.getElementById("cookie-consent-banner").style.display = "none";
+                } else {
+                    // Show the banner if no stored preference
+                    document.getElementById("cookie-consent-banner").style.display = "flex";
+                }
+
+                // Track thank you page view
+                gtag('event', 'page_view', {
+                    page_title: 'Thank You Page',
+                    page_location: window.location.href,
+                    event_category: 'engagement',
+                    event_label: 'leads_registration_success'
+                });
+            });
         </script>
 
         <!-- TailwindCSS CDN -->
@@ -99,6 +151,19 @@
             .yellow-accent {
                 background: #FFCC00;
             }
+
+            /* Cookie consent banner styles */
+            .cookie-banner {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(26, 26, 26, 0.95);
+                backdrop-filter: blur(10px);
+                border-top: 1px solid rgba(255, 204, 0, 0.2);
+                z-index: 1000;
+                padding: 1rem;
+            }
         </style>
         <!-- Meta Pixel Code -->
         <script>
@@ -131,6 +196,30 @@
         <!-- End Meta Pixel Code -->
     </head>
     <body class="black text-white font-exo">
+        <!-- Cookie Consent Banner -->
+        <div
+            id="cookie-consent-banner"
+            style="display: none"
+            class="cookie-banner flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex-1">
+                <p class="text-sm text-gray-300">
+                    Usamos cookies para analizar el uso del sitio y mejorar tu experiencia. ¿Nos permites recopilar datos anónimos de uso?
+                </p>
+            </div>
+            <div class="flex gap-2 flex-shrink-0">
+                <button
+                    onclick="updateConsent('denied')"
+                    class="px-4 py-2 text-sm border border-gray-600 text-gray-300 hover:text-white hover:border-gray-500 transition-colors rounded-lg">
+                    Rechazar
+                </button>
+                <button 
+                    onclick="updateConsent('granted')" 
+                    class="px-4 py-2 text-sm bg-bricks-yellow text-black font-medium hover:bg-yellow-400 transition-colors rounded-lg">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+
         <!-- Navigation -->
         <nav class="bg-bricks-dark/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -146,6 +235,7 @@
                             <a
                                 href="index.html"
                                 class="text-gray-300 hover:text-bricks-yellow px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-bricks-light"
+                                onclick="gtag('event', 'click', {event_category: 'navigation', event_label: 'back_to_home'})"
                                 >Volver al inicio</a
                             >
                         </div>
@@ -172,6 +262,7 @@
                     <a
                         href="index.html"
                         class="inline-block yellow-accent text-black font-semibold px-8 py-4 rounded-xl hover:scale-105 transition-transform"
+                        onclick="gtag('event', 'click', {event_category: 'engagement', event_label: 'back_to_home_button'})"
                         >Volver al inicio</a
                     >
                 </div>
@@ -190,9 +281,9 @@
                 <p class="text-gray-400 text-lg">Hecho con ❤️ para Perú.</p>
                 <p class="text-sm text-gray-400 mt-3">© 2025 Bricks. Todos los derechos reservados.</p>
                 <div class="mt-4 flex items-center justify-center gap-4 text-sm">
-                    <a href="/privacy.html" class="text-gray-400 hover:text-bricks-yellow">Política de Privacidad</a>
+                    <a href="/privacy.html" class="text-gray-400 hover:text-bricks-yellow" onclick="gtag('event', 'click', {event_category: 'navigation', event_label: 'privacy_policy'})">Política de Privacidad</a>
                     <span class="text-gray-600">•</span>
-                    <a href="/terms.html" class="text-gray-400 hover:text-bricks-yellow">Términos de Servicio</a>
+                    <a href="/terms.html" class="text-gray-400 hover:text-bricks-yellow" onclick="gtag('event', 'click', {event_category: 'navigation', event_label: 'terms_of_service'})">Términos de Servicio</a>
                 </div>
             </div>
         </footer>

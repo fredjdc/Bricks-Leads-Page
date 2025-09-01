@@ -39,6 +39,60 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="images/Leads-Logo.svg" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F052KKS9DR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        // Default to analytics_storage denied until consent is given
+        gtag("consent", "default", {
+            analytics_storage: "denied"
+        });
+
+        // Function to update consent based on user choice
+        function updateConsent(consent) {
+            if (consent === "granted") {
+                gtag("consent", "update", {
+                    analytics_storage: "granted"
+                });
+                // Store consent in localStorage
+                localStorage.setItem("analytics_consent", "granted");
+                // Hide consent banner
+                document.getElementById("cookie-consent-banner").style.display = "none";
+            } else {
+                // Keep denied or explicit denial
+                gtag("consent", "update", {
+                    analytics_storage: "denied"
+                });
+                // Store the denial in localStorage
+                localStorage.setItem("analytics_consent", "denied");
+                // Hide consent banner
+                document.getElementById("cookie-consent-banner").style.display = "none";
+            }
+        }
+
+        // Configure Google Analytics
+        gtag("config", "G-F052KKS9DR");
+
+        // Check for previously stored consent on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            const storedConsent = localStorage.getItem("analytics_consent");
+            if (storedConsent === "granted") {
+                updateConsent("granted");
+            } else if (storedConsent === "denied") {
+                // User explicitly denied before
+                document.getElementById("cookie-consent-banner").style.display = "none";
+            } else {
+                // Show the banner if no stored preference
+                document.getElementById("cookie-consent-banner").style.display = "flex";
+            }
+        });
+    </script>
+
     <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -108,11 +162,46 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(255, 204, 0, 0.2);
         }
+
+        /* Cookie consent banner styles */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 204, 0, 0.2);
+            z-index: 1000;
+            padding: 1rem;
+        }
     </style>
 </head>
 
 <body class="black text-white font-exo">
-    
+    <!-- Cookie Consent Banner -->
+    <div
+        id="cookie-consent-banner"
+        style="display: none"
+        class="cookie-banner flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="flex-1">
+            <p class="text-sm text-gray-300">
+                Usamos cookies para analizar el uso del sitio y mejorar tu experiencia. ¿Nos permites recopilar datos anónimos de uso?
+            </p>
+        </div>
+        <div class="flex gap-2 flex-shrink-0">
+            <button
+                onclick="updateConsent('denied')"
+                class="px-4 py-2 text-sm border border-gray-600 text-gray-300 hover:text-white hover:border-gray-500 transition-colors rounded-lg">
+                Rechazar
+            </button>
+            <button 
+                onclick="updateConsent('granted')" 
+                class="px-4 py-2 text-sm bg-bricks-yellow text-black font-medium hover:bg-yellow-400 transition-colors rounded-lg">
+                Aceptar
+            </button>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="inicio" class="pt-6 pb-0" style="background-color: #1A1A1A;">
@@ -295,6 +384,18 @@
                         heroImage.classList.remove('hidden');
                     }
                 }, 3000);
+            }
+
+            // Track form submission events
+            const form = document.getElementById('hero-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    // Track form submission
+                    gtag('event', 'form_submit', {
+                        event_category: 'engagement',
+                        event_label: 'leads_registration'
+                    });
+                });
             }
         });
     </script>
